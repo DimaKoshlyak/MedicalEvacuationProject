@@ -1,0 +1,48 @@
+CREATE DATABASE MedicalAutomation;
+USE MedicalAutomation;
+
+CREATE TABLE Crews (
+        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        crew_name VARCHAR(100) NOT NULL,
+	member1_name VARCHAR(100) NOT NULL,
+	member2_name VARCHAR(100) NOT NULL,
+	car VARCHAR(100) NOT NULL,
+	reanimation BIT NOT NULL
+);
+
+CREATE TABLE Institutions(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	type_of_institution VARCHAR(500) NOT NULL,
+	city VARCHAR(100) NOT NULL,
+	coordinate_x VARCHAR(100) NOT NULL,
+	coordinate_y VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Units(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	first_name VARCHAR(100) NOT NULL,
+	last_name VARCHAR(100) NOT NULL,
+	sex VARCHAR(10) NOT NULL,
+	battalion VARCHAR(100) NOT NULL,
+	blood_type VARCHAR(20) NOT NULL,
+	weight INT DEFAULT NULL,
+	token_number INT DEFAULT NULL,
+	description TEXT NOT NULL
+);
+
+CREATE TABLE Medical_Requests(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	unit_id INT DEFAULT NULL,
+	status VARCHAR(100) DEFAULT NULL,
+	injury VARCHAR(100) NOT NULL,
+	pain_reaction BIT NOT NULL,
+	breath VARCHAR(100) DEFAULT NULL,
+	blood_pressure VARCHAR(100) DEFAULT NULL,
+	extremity_avulsion BIT DEFAULT NULL,
+	care_type VARCHAR(200) DEFAULT NULL,
+	departure_point_name VARCHAR(100) NOT NULL,
+	departure_point_coordinate_x VARCHAR(100) DEFAULT NULL, 
+	departure_point_coordinate_y VARCHAR(100) DEFAULT NULL,
+	destination_institute_id INT DEFAULT NULL,
+	evacuation_crew_id INT DEFAULT NULL
+);
