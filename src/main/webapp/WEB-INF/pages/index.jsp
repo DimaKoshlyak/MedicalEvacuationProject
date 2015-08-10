@@ -27,18 +27,22 @@
             <td><b>Информация про эвакуацию</b></td>
             <td><b>Экипаж</b></td>
             <td><b>Время фиксации</b></td>
+            <td><b>Операции</b></td>
         </tr>
         </thead>
         <c:forEach items="${medical_requests}" var="medicalrequest">
             <tr>
-                <td>${medicalrequest.unit.id}</td>
+                <td>${medicalrequest.unit.lastName}</td>
                 <td>${medicalrequest.status}</td>
                 <td>${medicalrequest.injury}</td>
                 <td>${medicalrequest.bloodPressure}</td>
                 <td>${medicalrequest.extremityAvulsion}</td>
-                <td><a href="/MedEvacuation/departure_point_info?id=${medicalrequest.id}">Детальнее</a></td>
+                <td><a href="/MedAutomation/departure_point_info?id=${medicalrequest.id}">Детальнее</a></td>
                 <td>${medicalrequest.evacuationCrew.crewName}</td>
                 <td>${medicalrequest.timestamp}</td>
+                <td>
+                    <a href="/MedAutomation/close_request?id=${medicalrequest.id}">Завершить</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

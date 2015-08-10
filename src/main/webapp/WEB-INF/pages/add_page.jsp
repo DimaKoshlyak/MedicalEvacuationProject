@@ -2,14 +2,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>New</title>
+    <title>Создание новой заявки</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/SpringMVC/add" method="post">
-        <div class="form-group"><h3>New adv.</h3></div>
+    <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/MedAutomation/add_request" method="post">
+        <div class="form-group"><h3>Создание новой заявки.</h3></div>
         <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Name"></div>
         <div class="form-group"><input type="text" class="form-control" name="shortDesc" placeholder="Short description"></div>
         <div class="form-group"><input type="text" class="form-control" name="longDesc" placeholder="Long description"></div>

@@ -4,9 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ua.kiev.dk.services.CrewManager;
+import ua.kiev.dk.services.InstitutionManager;
 import ua.kiev.dk.services.MedicalRequestManager;
+import ua.kiev.dk.services.UnitManager;
 
 @Controller
 @RequestMapping("/MedAutomation")
@@ -19,9 +23,10 @@ public class MainController {
 	@Autowired
 	private CrewManager crewManager;
 
-//	@Qualifier("photoRepo")
-//	@Autowired
-//	private PhotoRepo photoRepo;
+	@Autowired
+	private UnitManager unitManager;
+	@Autowired
+	private InstitutionManager institutionManager;
 
 	@RequestMapping("/")
 	public ModelAndView listMedRequests() {
@@ -36,10 +41,16 @@ public class MainController {
 //	@RequestMapping(value = "/trash_page", method = RequestMethod.POST)
 //	public ModelAndView trashPage() { return new ModelAndView("trash","advs", crewManager.listBin()); }
 //
-//	@RequestMapping(value = "/search", method = RequestMethod.POST)
-//	public ModelAndView search(@RequestParam(value="pattern") String pattern) {
-//		return new ModelAndView("index", "advs", crewManager.list(pattern));
-//	}
+	@RequestMapping(value = "/search", method = RequestMethod.POST)
+	public ModelAndView search(@RequestParam(value="pattern") String pattern) {
+		return new ModelAndView("index", "advs", crewManager.list(pattern));
+	}
+
+
+	@RequestMapping("/departure_point_info")
+	public ModelAndView moveToTrash(@RequestParam(value="id") long id) {
+		return null;
+	}
 //
 //	@RequestMapping("/move_to_trash")
 //	public ModelAndView moveToTrash(@RequestParam(value="id") long id) {
