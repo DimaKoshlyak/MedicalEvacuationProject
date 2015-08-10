@@ -1,29 +1,31 @@
 package ua.kiev.dk.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ua.kiev.dk.services.DBManager;
+import ua.kiev.dk.services.CrewManager;
+import ua.kiev.dk.services.MedicalRequestManager;
 
 @Controller
 @RequestMapping("/MedAutomation")
 @ComponentScan("ua.kiev.dk")
 public class MainController {
 
-	@Qualifier("dbManager")
 	@Autowired
-	private DBManager dbManager;
+	private MedicalRequestManager medicalRequestManager;
+
+	@Autowired
+	private CrewManager crewManager;
 
 //	@Qualifier("photoRepo")
 //	@Autowired
 //	private PhotoRepo photoRepo;
 
 	@RequestMapping("/")
-	public ModelAndView listCrews() {
-		return new ModelAndView("index","crews",dbManager.listCrew());
+	public ModelAndView listMedRequests() {
+		return new ModelAndView("index","medical_requests", medicalRequestManager.listActiveMedicalRequests());
 	}
 
 //	@RequestMapping(value = "/add_page", method = RequestMethod.POST)
@@ -32,17 +34,17 @@ public class MainController {
 //	}
 //
 //	@RequestMapping(value = "/trash_page", method = RequestMethod.POST)
-//	public ModelAndView trashPage() { return new ModelAndView("trash","advs", dbManager.listBin()); }
+//	public ModelAndView trashPage() { return new ModelAndView("trash","advs", crewManager.listBin()); }
 //
 //	@RequestMapping(value = "/search", method = RequestMethod.POST)
 //	public ModelAndView search(@RequestParam(value="pattern") String pattern) {
-//		return new ModelAndView("index", "advs", dbManager.list(pattern));
+//		return new ModelAndView("index", "advs", crewManager.list(pattern));
 //	}
 //
 //	@RequestMapping("/move_to_trash")
 //	public ModelAndView moveToTrash(@RequestParam(value="id") long id) {
-//		dbManager.moveToTrash(id);
-//		return new ModelAndView("index", "advs", dbManager.list());
+//		crewManager.moveToTrash(id);
+//		return new ModelAndView("index", "advs", crewManager.list());
 //	}
 //
 //	@RequestMapping(value = "/process_checked", method = RequestMethod.POST)
@@ -52,18 +54,18 @@ public class MainController {
 //		if (str != null)
 //			for (String idstr : str) {
 //				if (whatToDo.equals("delete")) {
-//					dbManager.delete(Long.valueOf(idstr));
+//					crewManager.delete(Long.valueOf(idstr));
 //				} else if (whatToDo.equals("restore")) {
-//					dbManager.restoreFromTrash(Long.valueOf(idstr));
+//					crewManager.restoreFromTrash(Long.valueOf(idstr));
 //				}
 //			}
-//		return new ModelAndView("trash", "advs", dbManager.listBin());
+//		return new ModelAndView("trash", "advs", crewManager.listBin());
 //	}
 //
 //	@RequestMapping("/image/{file_id}")
 //	public void getFile(HttpServletRequest request, HttpServletResponse response, @PathVariable("file_id") long fileId) {
 //		try {
-//			byte[] content = dbManager.getPhoto(fileId);
+//			byte[] content = crewManager.getPhoto(fileId);
 //			response.setContentType("image/png");
 //			response.getOutputStream().write(content);
 //		} catch (IOException ex) {
@@ -86,8 +88,8 @@ public class MainController {
 //				name, shortDesc, longDesc, phone, price,
 //				photo.isEmpty() ? null : new Photo(photo.getOriginalFilename(), photo.getBytes())
 //		);
-//		dbManager.add(adv);
-//		return new ModelAndView("index", "advs", dbManager.list());
+//		crewManager.add(adv);
+//		return new ModelAndView("index", "advs", crewManager.list());
 //	} catch (IOException ex) {
 //		response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 //		return null;
@@ -116,8 +118,8 @@ public class MainController {
 //		}
 //		for (Advertisement adv : advList.getAdvList()) {
 //			adv.setTo_del(false);
-//			dbManager.add(adv);
+//			crewManager.add(adv);
 //		}
-//		return new ModelAndView("index", "advs", dbManager.list());
+//		return new ModelAndView("index", "advs", crewManager.list());
 //	}
 }

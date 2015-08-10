@@ -1,6 +1,7 @@
 package ua.kiev.dk.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by d.koshlyak on 06.08.2015.
@@ -41,6 +42,9 @@ public class MedicalRequest {
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "evacuation_crew_id")
     private Crew evacuationCrew;
+private Date timestamp;
+    @Column(name="active_request")
+    private boolean activeRequest;
 
     public MedicalRequest(Unit unit, String status, String injury, boolean painReaction, String breath, String pressure,
                           boolean extremityAvulsion, String careType, String departurePointName,
@@ -59,9 +63,19 @@ public class MedicalRequest {
         this.departurePointCoordinateY = departurePointCoordinateY;
         this.destinationInstitute = destinationInstitute;
         this.evacuationCrew = evacuationCrew;
+        this.activeRequest=true;
+        this.timestamp=new Date();
     }
 
     public MedicalRequest (){}
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public void setUnit(Unit unit) {
         this.unit = unit;
@@ -165,5 +179,18 @@ public class MedicalRequest {
 
     public Crew getEvacuationCrew() {
         return evacuationCrew;
+    }
+
+    public void setActiveRequest(boolean activeRequest) {
+        this.activeRequest = activeRequest;
+    }
+
+    public boolean isActiveRequest() {
+        return activeRequest;
+
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
     }
 }

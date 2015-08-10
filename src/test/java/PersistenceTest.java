@@ -12,7 +12,7 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import ua.kiev.dk.config.PersistenceContext;
 import ua.kiev.dk.entities.Crew;
-import ua.kiev.dk.services.DBManager;
+import ua.kiev.dk.services.CrewManager;
 
 import java.util.Collection;
 import java.util.List;
@@ -29,11 +29,11 @@ import static org.junit.Assert.assertEquals;
 @DatabaseSetup("classpath:resources/database.xml")
 public class PersistenceTest {
         @Autowired
-        private DBManager dbManager;
+        private CrewManager crewManager;
 
         @Test
         public void findAll() {
-                Collection<Crew> crews = (List<Crew>) dbManager.listCrew();
+                Collection<Crew> crews = (List<Crew>) crewManager.listCrew();
                 assertEquals(4, crews.size());
         }
         }

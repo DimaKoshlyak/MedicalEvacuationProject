@@ -44,5 +44,7 @@ CREATE TABLE Medical_Requests(
 	departure_point_coordinate_x VARCHAR(100) DEFAULT NULL, 
 	departure_point_coordinate_y VARCHAR(100) DEFAULT NULL,
 	destination_institute_id INT DEFAULT NULL,
-	evacuation_crew_id INT DEFAULT NULL
+	evacuation_crew_id INT DEFAULT NULL,
+	timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	active_request BIT NOT NULL
 );

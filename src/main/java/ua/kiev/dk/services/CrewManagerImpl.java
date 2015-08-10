@@ -5,23 +5,24 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ua.kiev.dk.entities.Crew;
 import ua.kiev.dk.entities.MedicalRequest;
-import ua.kiev.dk.repositories.DBRepository;
+import ua.kiev.dk.repositories.CrewRepository;
 
 import java.util.List;
 
 /**
  * Created by d.koshlyak on 07.08.2015.
  */
-@Service("dbManager")
-public class DBManagerImpl implements DBManager {
+@Service("crewManager")
+public class CrewManagerImpl implements CrewManager {
 
-    @Qualifier("DBRepository")
+
+    @Qualifier("crewRepository")
     @Autowired
-    private DBRepository dbRepository;
+    private CrewRepository crewRepository;
 
     @Override
     public List<Crew> listCrew() {
-        return dbRepository.findAll();
+        return crewRepository.findAll();
     }
 
     public List<MedicalRequest> list(String pattern) {

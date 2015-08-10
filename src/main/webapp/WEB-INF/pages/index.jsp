@@ -8,33 +8,37 @@
 </head>
 <body>
 <div class="container">
-    <h3>Тест</h3>
+    <h3>Активные заявки на эвакуацию</h3>
 
-    <!--form class="form-inline" role="form" action="/SpringMVC/search" method="post">
+    <form class="form-inline" role="form" action="/MedAutomation/search" method="post">
         <input type="text" class="form-control" name="pattern" placeholder="Search">
         <input type="submit" class="btn btn-default" value="Search">
-    </form-->
+    </form>
 
     <table class="table table-striped">
         <thead>
         <tr>
 
-            <td><b>Название экипажа</b></td>
-            <td><b>Имя 1</b></td>
-            <td><b>Имя 2</b></td>
-            <td><b>Автомобиль</b></td>
-            <td><b>Реанимация</b></td>
-            <td><b>Операции</b></td>
+            <td><b>Id пострадавшего</b></td>
+            <td><b>Состояние</b></td>
+            <td><b>Тип ранения</b></td>
+            <td><b>Давление</b></td>
+            <td><b>Отрыв конечности</b></td>
+            <td><b>Информация про эвакуацию</b></td>
+            <td><b>Экипаж</b></td>
+            <td><b>Время фиксации</b></td>
         </tr>
         </thead>
-        <c:forEach items="${crews}" var="crew">
+        <c:forEach items="${medical_requests}" var="medicalrequest">
             <tr>
-                <td>${crew.crewName}</td>
-                <td>${crew.member1Name}</td>
-                <td>${crew.member2Name}</td>
-                <td>${crew.car}</td>
-                <td>${crew.reanimation}</td>
-                <td><a href="/SpringMVC/move_to_trash?id=${adv.id}">Move to trash</a></td>
+                <td>${medicalrequest.unit.id}</td>
+                <td>${medicalrequest.status}</td>
+                <td>${medicalrequest.injury}</td>
+                <td>${medicalrequest.bloodPressure}</td>
+                <td>${medicalrequest.extremityAvulsion}</td>
+                <td><a href="/MedEvacuation/departure_point_info?id=${medicalrequest.id}">Детальнее</a></td>
+                <td>${medicalrequest.evacuationCrew.crewName}</td>
+                <td>${medicalrequest.timestamp}</td>
             </tr>
         </c:forEach>
     </table>

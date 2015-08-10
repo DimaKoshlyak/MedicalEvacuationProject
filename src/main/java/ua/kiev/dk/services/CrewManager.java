@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by d.koshlyak on 07.08.2015.
  */
-public interface DBManager {
+public interface CrewManager {
 
     List<Crew> listCrew();
 

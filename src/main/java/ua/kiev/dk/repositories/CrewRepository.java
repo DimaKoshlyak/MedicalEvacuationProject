@@ -10,5 +10,5 @@ import ua.kiev.dk.entities.Crew;
  */
 @Transactional
 @Repository
-public interface DBRepository extends JpaRepository<Crew,Long> {
+public interface CrewRepository extends JpaRepository<Crew,Long> {
 }
