@@ -7,4 +7,6 @@ import ua.kiev.dk.entities.Institution;
  * Created by d.koshlyak on 10.08.2015.
  */
 public interface InstitutionRepository extends JpaRepository<Institution, Long> {
+
+
 }

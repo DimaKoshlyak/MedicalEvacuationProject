@@ -10,4 +10,6 @@ import java.util.List;
 public interface MedicalRequestManager {
 
     List<MedicalRequest> listActiveMedicalRequests();
+    List<MedicalRequest> listArchiveRequest();
+    void moveToArchive(long id);
 }

@@ -46,6 +46,18 @@
             </tr>
         </c:forEach>
     </table>
+
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"> <a href="/MedAutomation/show_archive">Показать архивные заявки</a></button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Middle</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">Right</button>
+        </div>
+    </div>
   <!--  <form class="form-inline" role="form" action="/SpringMVC/add_page" method="post">
         <input type="submit" class="btn btn-primary" value="Add new">
     </form>

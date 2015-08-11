@@ -18,6 +18,18 @@ public class MedicalRequestManagerImpl implements MedicalRequestManager{
 
     @Override
     public List<MedicalRequest> listActiveMedicalRequests() {
-        return medicalRequestRepository.findAll();
+        return medicalRequestRepository.findByActiveRequest(true);
+    }
+
+    @Override
+    public List<MedicalRequest> listArchiveRequest(){
+        return medicalRequestRepository.findByActiveRequest(false);
+    }
+
+    @Override
+    public void moveToArchive(long id) {
+        MedicalRequest medicalRequest = medicalRequestRepository.findOne(id);
+        medicalRequest.setActiveRequest(false);
+        medicalRequestRepository.save(medicalRequest);
     }
 }

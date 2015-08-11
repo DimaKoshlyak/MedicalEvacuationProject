@@ -38,8 +38,8 @@ public class MainController {
 //		return "add_page";
 //	}
 //
-//	@RequestMapping(value = "/trash_page", method = RequestMethod.POST)
-//	public ModelAndView trashPage() { return new ModelAndView("trash","advs", crewManager.listBin()); }
+	@RequestMapping("/show_archive")
+	public ModelAndView showArchiveRequests() { return new ModelAndView("archive","medical_requests", medicalRequestManager.listArchiveRequest()); }
 //
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public ModelAndView search(@RequestParam(value="pattern") String pattern) {
@@ -52,11 +52,11 @@ public class MainController {
 		return null;
 	}
 //
-//	@RequestMapping("/move_to_trash")
-//	public ModelAndView moveToTrash(@RequestParam(value="id") long id) {
-//		crewManager.moveToTrash(id);
-//		return new ModelAndView("index", "advs", crewManager.list());
-//	}
+	@RequestMapping("/close_request")
+	public ModelAndView moveToArchive(@RequestParam(value="id") long id) {
+		medicalRequestManager.moveToArchive(id);
+		return new ModelAndView("index", "medical_requests", medicalRequestManager.listActiveMedicalRequests());
+	}
 //
 //	@RequestMapping(value = "/process_checked", method = RequestMethod.POST)
 //	public ModelAndView processChecked(HttpServletRequest request) {
