@@ -48,8 +48,9 @@ public class MainController {
 
 
 	@RequestMapping("/departure_point_info")
-	public ModelAndView moveToTrash(@RequestParam(value="id") long id) {
-		return null;
+	public ModelAndView showCoordinates(@RequestParam(value="id") long id) {
+		System.out.println("id = " + id);
+		return new ModelAndView("coordinates","medical_requests",medicalRequestManager.showCoordinates(id));
 	}
 //
 	@RequestMapping("/close_request")

@@ -32,4 +32,10 @@ public class MedicalRequestManagerImpl implements MedicalRequestManager{
         medicalRequest.setActiveRequest(false);
         medicalRequestRepository.save(medicalRequest);
     }
+
+    @Override
+    public MedicalRequest showCoordinates(long id) {
+        MedicalRequest medicalRequest = medicalRequestRepository.findOne(id);
+        return medicalRequest;
+    }
 }

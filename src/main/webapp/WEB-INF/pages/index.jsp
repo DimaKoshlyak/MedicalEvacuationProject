@@ -37,7 +37,7 @@
                 <td>${medicalrequest.injury}</td>
                 <td>${medicalrequest.bloodPressure}</td>
                 <td>${medicalrequest.extremityAvulsion}</td>
-                <td><a href="/MedAutomation/departure_point_info?id=${medicalrequest.id}">Детальнее</a></td>
+                <td><a href="/MedAutomation/departure_point_info?id=${medicalrequest.id}" target="_blank">Детальнее</a></td>
                 <td>${medicalrequest.evacuationCrew.crewName}</td>
                 <td>${medicalrequest.timestamp}</td>
                 <td>
