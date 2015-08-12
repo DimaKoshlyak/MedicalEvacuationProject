@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ua.kiev.dk.services.CrewManager;
@@ -40,12 +39,9 @@ public class MainController {
 //
 	@RequestMapping("/show_archive")
 	public ModelAndView showArchiveRequests() { return new ModelAndView("archive","medical_requests", medicalRequestManager.listArchiveRequest()); }
-//
-	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public ModelAndView search(@RequestParam(value="pattern") String pattern) {
-		return new ModelAndView("index", "advs", crewManager.list(pattern));
-	}
 
+	@RequestMapping("/show_crews")
+	public ModelAndView showCrews(){return new ModelAndView("crews","crews",crewManager.listCrew());}
 
 	@RequestMapping("/departure_point_info")
 	public ModelAndView showCoordinates(@RequestParam(value="id") long id) {

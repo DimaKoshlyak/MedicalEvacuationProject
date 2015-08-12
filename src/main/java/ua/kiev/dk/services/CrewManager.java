@@ -1,7 +1,6 @@
 package ua.kiev.dk.services;
 
 import ua.kiev.dk.entities.Crew;
-import ua.kiev.dk.entities.MedicalRequest;
 
 import java.util.List;
 
@@ -11,16 +10,4 @@ import java.util.List;
 public interface CrewManager {
 
     List<Crew> listCrew();
-
-    List<MedicalRequest> list(String pattern);
-
-    List<MedicalRequest> listBin ();
-
-    void add(MedicalRequest adv);
-
-    void moveToTrash(long id);
-
-    void restoreFromTrash(long id);
-
-    void delete(long id);
 }
