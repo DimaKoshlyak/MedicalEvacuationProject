@@ -43,6 +43,9 @@ public class MainController {
 	@RequestMapping("/show_crews")
 	public ModelAndView showCrews(){return new ModelAndView("crews","crews",crewManager.listCrew());}
 
+	@RequestMapping("/show_institutions")
+	public ModelAndView showInstitutions(){return new ModelAndView("institutions","institutions",institutionManager.listOfInstitutions());}
+
 	@RequestMapping("/departure_point_info")
 	public ModelAndView showCoordinates(@RequestParam(value="id") long id) {
 		System.out.println("id = " + id);

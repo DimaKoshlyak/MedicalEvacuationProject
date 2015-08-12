@@ -52,10 +52,10 @@
             <button type="button" class="btn btn-default"> <a href="/MedAutomation/show_archive">Показать архивные заявки</a></button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_crews">Показать экипажи</a></button>
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_crews" target="_blank">Показать экипажи</a></button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Right</button>
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Показать лечебные заведения</a></button>
         </div>
     </div>
   <!--  <form class="form-inline" role="form" action="/SpringMVC/add_page" method="post">

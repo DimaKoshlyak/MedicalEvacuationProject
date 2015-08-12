@@ -13,20 +13,24 @@ public class Institution {
     @Id
     @GeneratedValue
     private long id;
-@Column(name = "type_of_institution")
-    private String typeOfInstitution;
+    @Column(name = "institution_name")
+    private String institutionName;
+
+    @Column(name = "institution_type")
+    private String institutionType;
 
     private String city;
 @Column(name = "coordinate_x")
     private String coordinateX;
 @Column(name = "coordinate_y")
-    private String CoordinateY;
+    private String coordinateY;
 
-    public Institution(String typeOfInstitution, String city, String coordinateX, String coordinateY) {
-        this.typeOfInstitution = typeOfInstitution;
+    public Institution(String institutionName, String institutionType, String city, String coordinateX, String coordinateY) {
+        this.institutionName = institutionName;
+        this.institutionType = institutionType;
         this.city = city;
         this.coordinateX = coordinateX;
-        CoordinateY = coordinateY;
+        this.coordinateY = coordinateY;
     }
 
     public Institution(){}
@@ -35,8 +39,16 @@ public class Institution {
         this.id = id;
     }
 
-    public void setTypeOfInstitution(String typeOfInstitution) {
-        this.typeOfInstitution = typeOfInstitution;
+    public void setInstitutionName(String institutionName) {
+        this.institutionName = institutionName;
+    }
+
+    public String getInstitutionName() {
+
+        return institutionName;
+    }
+    public void setInstitutionType(String institutionType) {
+        this.institutionType = institutionType;
     }
 
     public void setCity(String city) {
@@ -48,15 +60,15 @@ public class Institution {
     }
 
     public void setCoordinateY(String coordinateY) {
-        CoordinateY = coordinateY;
+        this.coordinateY = coordinateY;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getTypeOfInstitution() {
-        return typeOfInstitution;
+    public String getInstitutionType() {
+        return institutionType;
     }
 
     public String getCity() {
@@ -68,6 +80,6 @@ public class Institution {
     }
 
     public String getCoordinateY() {
-        return CoordinateY;
+        return coordinateY;
     }
 }
