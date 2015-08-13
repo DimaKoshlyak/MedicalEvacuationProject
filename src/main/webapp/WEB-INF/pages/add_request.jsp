@@ -7,17 +7,131 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/MedAutomation/add_request" method="post">
-        <div class="form-group"><h3>Создание новой заявки.</h3></div>
-        <div class="form-group"><input type="text" class="form-control" name="name" placeholder="Name"></div>
-        <div class="form-group"><input type="text" class="form-control" name="shortDesc" placeholder="Short description"></div>
-        <div class="form-group"><input type="text" class="form-control" name="longDesc" placeholder="Long description"></div>
-        <div class="form-group"><input type="text" class="form-control" name="phone" placeholder="Phone"></div>
-        <div class="form-group"><input type="text" class="form-control" name="price" placeholder="Price"></div>
-        <div class="form-group">Photo: <input type="file" name="photo"></div>
 
-        <div class="form-group"><input type="submit" class="btn btn-primary" value="Add"></div>
+<div class="container">
+    <form role="form" enctype="multipart/form-data" class="form-horizontal" action="/MedAutomation/add" method="post">
+        <div class="form-group"><h3>Создание новой заявки.</h3></div>
+        <div class="form-group">
+            <label>Имя пострадавшего</label>
+            <input type="text" class="form-control" name="firstName">
+        </div>
+        <div class="form-group">
+            <label>Фамилия пострадавшего</label>
+            <input type="text" class="form-control" name="lastName">
+        </div>
+        <div class="form-group">
+            <label for="sex">Пол</label>
+            <select class="form-control" id="sex">
+                <option>М</option>
+                <option>Ж</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Бригада</label>
+            <input type="text" class="form-control" name="brigade">
+        </div>
+        <div class="form-group">
+            <label>Батальон</label>
+            <input type="text" class="form-control" name="battalion">
+        </div>
+        <div class="form-group">
+            <label>Группа крови</label>
+            <input type="text" class="form-control" name="bloodType">
+        </div>
+        <div class="form-group">
+            <label>Вес</label>
+            <input type="text" class="form-control" name="weight">
+        </div>
+        <div class="form-group">
+            <label>Номер жетона</label>
+            <input type="text" class="form-control" name="tokenNumber">
+        </div>
+        <div class="form-group">
+            <label for="status">Степень тяжести состояния пострадавшего</label>
+            <select class="form-control" id="status">
+                <option>Удовлетворительное</option>
+                <option>Средней тяжести</option>
+                <option>Тяжелое</option>
+                <option>Крайне тяжелое</option>
+                <option>Критическое</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="injury">Вид ранения</label>
+            <select class="form-control" id="injury">
+                <option>Огнестрельное</option>
+                <option>Минно-взрывное</option>
+                <option>Взрывное</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="painReaction">Болевая реакция</label>
+            <select class="form-control" id="painReaction">
+                <option>Отсутствует</option>
+                <option>Сохранена</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="breath">Дыхание</label>
+            <select class="form-control" id="breath">
+                <option>Нормальное</option>
+                <option>Чистое</option>
+                <option>Патологическое</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="extremityAvulsion">Отрыв конечности</label>
+            <select class="form-control" id="extremityAvulsion">
+                <option>Отсутствует</option>
+                <option>Присутствует</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Давление</label>
+            <input type="text" class="form-control" name="bloodPressure">
+        </div>
+        <div class="form-group">
+            <label for="careType">Этапы помощи</label>
+            <select class="form-control" id="careType">
+                <option>Помощь "под огнем"</option>
+                <option>Помощь в полевых условиях</option>
+                <option>Мобильные, военные, гражданские госпиталя и клиники</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Населенный пункт эвакуации</label>
+            <input type="text" class="form-control" name="departurePointName">
+        </div>
+        <div class="form-group">
+            <label>Координаты(широта)</label>
+            <input type="text" class="form-control" name="departurePointCoordinateX">
+        </div>
+        <div class="form-group">
+            <label>Координаты(долгота)</label>
+            <input type="text" class="form-control" name="departurePointCoordinateY">
+        </div>
+        <div class="form-group">
+            <label for="destinationInstitution">Эвакуировать в</label>
+            <select class="form-control" id="destinationInstitution">
+                <c:forEach items="${institutions}" var="institution">
+                    <option value="${institution.institutionName}"
+                            selected=${institution == selectedInstitution ? 'selected' : ''}>${institution.institutionName}</option>
+                </c:forEach>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="evacuationCrew">Экипаж для эвакуации</label>
+            <select class="form-control" id="evacuationCrew">
+                <c:forEach items="${crews}" var="crew">
+                    <option value="${crew.crewName}"
+                            selected=${crew == selectedCrew ? 'selected' : ''}>${crew.crewName}</option>
+                </c:forEach>
+            </select>
+        </div>
+
+        <form class="form-inline" role="form" action="/MedAutomation/add" method="post">
+            <input type="submit" class="btn btn-primary" value="Добавить">
+        </form>
     </form>
 </div>
 </body>

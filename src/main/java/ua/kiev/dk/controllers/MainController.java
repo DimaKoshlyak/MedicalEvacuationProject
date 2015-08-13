@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import ua.kiev.dk.services.CrewManager;
@@ -51,7 +52,10 @@ public class MainController {
 		System.out.println("id = " + id);
 		return new ModelAndView("coordinates","medical_requests",medicalRequestManager.showCoordinates(id));
 	}
-//
+
+	@RequestMapping(value = "/add_request", method = RequestMethod.POST)
+	public ModelAndView addMedicalRequest(){return new ModelAndView("add_request","crews",crewManager.listCrew());}
+
 	@RequestMapping("/close_request")
 	public ModelAndView moveToArchive(@RequestParam(value="id") long id) {
 		medicalRequestManager.moveToArchive(id);

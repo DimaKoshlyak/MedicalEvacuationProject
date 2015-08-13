@@ -58,10 +58,12 @@
             <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Показать лечебные заведения</a></button>
         </div>
     </div>
-  <!--  <form class="form-inline" role="form" action="/SpringMVC/add_page" method="post">
-        <input type="submit" class="btn btn-primary" value="Add new">
+<br>
+    <form class="form-inline" role="form" action="/MedAutomation/add_request" method="post">
+        <input type="submit" class="btn btn-primary" value="Добавить заявку">
     </form>
-    <form class="form-inline" role="form" action="/SpringMVC/trash_page" method="post">
+
+    <!--form class="form-inline" role="form" action="/SpringMVC/trash_page" method="post">
         <input type="submit" class="btn btn-primary" value="Show Thash">
     </form>
     <form class="form-inline" role="form" action="/SpringMVC/load_xml" method="post">

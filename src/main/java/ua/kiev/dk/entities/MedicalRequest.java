@@ -9,41 +9,41 @@ import java.util.Date;
 @Entity
 @Table(name = "Medical_Requests")
 public class MedicalRequest {
-@Id
-@GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
     private String status;
 
     private String injury;
-@Column(name = "pain_reaction")
+    @Column(name = "pain_reaction")
     private boolean painReaction;
 
     private String breath;
     @Column(name = "blood_pressure")
     private String bloodPressure;
-@Column(name = "extremity_avulsion")
+    @Column(name = "extremity_avulsion")
     private boolean extremityAvulsion;
-@Column(name = "care_type")
+    @Column(name = "care_type")
     private String careType;
-@Column(name = "departure_point_name")
+    @Column(name = "departure_point_name")
     private String departurePointName;
-@Column(name = "departure_point_coordinate_x")
+    @Column(name = "departure_point_coordinate_x")
     private String departurePointCoordinateX;
     @Column(name = "departure_point_coordinate_y")
     private String departurePointCoordinateY;
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "destination_institute_id")
     private Institution destinationInstitute;
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "evacuation_crew_id")
     private Crew evacuationCrew;
-private Date timestamp;
-    @Column(name="active_request")
+    private Date timestamp;
+    @Column(name = "active_request")
     private boolean activeRequest;
 
     public MedicalRequest(Unit unit, String status, String injury, boolean painReaction, String breath, String pressure,
@@ -63,11 +63,12 @@ private Date timestamp;
         this.departurePointCoordinateY = departurePointCoordinateY;
         this.destinationInstitute = destinationInstitute;
         this.evacuationCrew = evacuationCrew;
-        this.activeRequest=true;
-        this.timestamp=new Date();
+        this.activeRequest = true;
+        this.timestamp = new Date();
     }
 
-    public MedicalRequest (){}
+    public MedicalRequest() {
+    }
 
     public long getId() {
         return id;

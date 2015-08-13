@@ -9,22 +9,22 @@ import javax.persistence.*;
 @Table(name = "units")
 @Entity
 public class Unit {
-@Id
-@GeneratedValue
-private long id;
-@Column(name = "first_name")
+    @Id
+    @GeneratedValue
+    private long id;
+    @Column(name = "first_name")
     private String firstName;
-@Column(name = "last_name")
+    @Column(name = "last_name")
     private String lastName;
 
     private String sex;
 
     private String battalion;
-@Column(name = "blood_type")
+    @Column(name = "blood_type")
     private String bloodType;
 
     private int weight;
-@Column(name = "token_number")
+    @Column(name = "token_number")
     private int tokenNumber;
 
     private String description;
@@ -40,7 +40,8 @@ private long id;
         this.brigade = brigade;
     }
 
-    public Unit() {}
+    public Unit() {
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -115,6 +116,7 @@ private long id;
     public long getTokenNumber() {
         return tokenNumber;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
