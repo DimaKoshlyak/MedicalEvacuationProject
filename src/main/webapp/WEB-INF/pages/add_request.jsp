@@ -128,10 +128,7 @@
                 </c:forEach>
             </select>
         </div>
-
-        <form class="form-inline" role="form" action="/MedAutomation/add" method="post">
-            <input type="submit" class="btn btn-primary" value="Добавить">
-        </form>
+        <div class="form-group"><input type="submit" class="btn btn-primary" value="Добавить заявку"></div>
     </form>
 </div>
 </body>

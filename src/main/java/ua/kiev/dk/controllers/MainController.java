@@ -12,6 +12,9 @@ import ua.kiev.dk.services.InstitutionManager;
 import ua.kiev.dk.services.MedicalRequestManager;
 import ua.kiev.dk.services.UnitManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/MedAutomation")
 @ComponentScan("ua.kiev.dk")
@@ -49,12 +52,16 @@ public class MainController {
 
 	@RequestMapping("/departure_point_info")
 	public ModelAndView showCoordinates(@RequestParam(value="id") long id) {
-		System.out.println("id = " + id);
 		return new ModelAndView("coordinates","medical_requests",medicalRequestManager.showCoordinates(id));
 	}
 
 	@RequestMapping(value = "/add_request", method = RequestMethod.POST)
-	public ModelAndView addMedicalRequest(){return new ModelAndView("add_request","crews",crewManager.listCrew());}
+	public ModelAndView addMedicalRequest(){
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("crews",crewManager.listCrew());
+		model.put("institutions",institutionManager.listOfInstitutions());
+		return new ModelAndView("add_request",model);
+	}
 
 	@RequestMapping("/close_request")
 	public ModelAndView moveToArchive(@RequestParam(value="id") long id) {
