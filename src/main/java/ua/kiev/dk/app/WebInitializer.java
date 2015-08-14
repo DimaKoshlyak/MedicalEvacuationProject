@@ -3,10 +3,12 @@ package ua.kiev.dk.app;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import ua.kiev.dk.config.MVCContext;
 import ua.kiev.dk.config.PersistenceContext;
 
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
@@ -24,5 +26,10 @@ public class WebInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher", new DispatcherServlet(appConfig));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
+
+        FilterRegistration charEncodingfilterReg = container.addFilter("CharacterEncodingFilter", CharacterEncodingFilter.class);
+        charEncodingfilterReg.setInitParameter("encoding", "UTF-8");
+        charEncodingfilterReg.setInitParameter("forceEncoding", "true");
+        charEncodingfilterReg.addMappingForUrlPatterns(null, false, "/*");
     }
 }

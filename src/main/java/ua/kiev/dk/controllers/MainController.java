@@ -86,7 +86,7 @@ public class MainController {
 		return new ModelAndView("crews","crews",crewManager.listCrew());
 	}
 
-	@RequestMapping(value = "/add_crew", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value = "/add_crew", method = RequestMethod.POST, produces={"text/html;charset=UTF-8"})
 	public ModelAndView addAdv(@RequestParam(value = "crewName") String crewName,
 							   @RequestParam(value = "member1Name") String member1Name,
 							   @RequestParam(value = "member2Name") String member2Name,
@@ -94,9 +94,9 @@ public class MainController {
 							   @RequestParam(value = "reanimation") String reanimation,
 							   HttpServletRequest request,
 							   HttpServletResponse response) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+//		request.setCharacterEncoding("UTF-8");
+//		response.setCharacterEncoding("UTF-8");
+//		response.setContentType("text/html; charset=UTF-8");
 		Crew crew = new Crew(
                 crewName, member1Name, member2Name, car);
 		System.out.println(reanimation);
