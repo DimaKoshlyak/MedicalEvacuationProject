@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Создание нового экипажа</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -28,8 +29,8 @@
       <input type="text" class="form-control" name="car">
     </div>
     <div class="form-group">
-      <label for="reaniamtion">Наличие реанимации</label>
-      <select class="form-control" id="reaniamtion">
+      <label for="reanimation">Наличие реанимации</label>
+      <select class="form-control" id="reanimation" name="reanimation">
         <option>Присутствует</option>
         <option>Отсутствует</option>
       </select>

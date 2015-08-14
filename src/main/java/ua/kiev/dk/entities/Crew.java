@@ -22,12 +22,11 @@ public class Crew {
 
     private boolean reanimation;
 
-    public Crew(String crewName, String member1Name, String member2Name, String car, boolean reanimation) {
+    public Crew(String crewName, String member1Name, String member2Name, String car) {
         this.crewName = crewName;
         this.member1Name = member1Name;
         this.member2Name = member2Name;
         this.car = car;
-        this.reanimation = reanimation;
     }
 
     public Crew(){}

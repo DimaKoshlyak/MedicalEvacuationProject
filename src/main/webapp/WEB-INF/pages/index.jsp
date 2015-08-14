@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Тест Example</title>
+    <title>Активные заявки на эвакуацию</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -58,11 +58,11 @@
             <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Показать лечебные заведения</a></button>
         </div>
     </div>
-<br>
-    <form class="form-inline" role="form" action="/MedAutomation/add_request" method="post">
+<div>
+    <form class="form-inline" role="form" action="/MedAutomation/open_add_request_page" method="post">
         <input type="submit" class="btn btn-primary" value="Добавить заявку">
     </form>
-
+</div>
     <!--form class="form-inline" role="form" action="/SpringMVC/trash_page" method="post">
         <input type="submit" class="btn btn-primary" value="Show Thash">
     </form>

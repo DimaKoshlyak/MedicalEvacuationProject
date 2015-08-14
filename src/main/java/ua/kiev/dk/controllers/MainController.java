@@ -3,15 +3,20 @@ package ua.kiev.dk.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ua.kiev.dk.entities.Crew;
 import ua.kiev.dk.services.CrewManager;
 import ua.kiev.dk.services.InstitutionManager;
 import ua.kiev.dk.services.MedicalRequestManager;
 import ua.kiev.dk.services.UnitManager;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,115 +38,71 @@ public class MainController {
 
 	@RequestMapping("/")
 	public ModelAndView listMedRequests() {
-		return new ModelAndView("index","medical_requests", medicalRequestManager.listActiveMedicalRequests());
+		return new ModelAndView("index", "medical_requests", medicalRequestManager.listActiveMedicalRequests());
 	}
 
-//	@RequestMapping(value = "/add_page", method = RequestMethod.POST)
-//	public String addPage(Model model) {
-//		return "add_page";
-//	}
-//
 	@RequestMapping("/show_archive")
-	public ModelAndView showArchiveRequests() { return new ModelAndView("archive","medical_requests", medicalRequestManager.listArchiveRequest()); }
+	public ModelAndView showArchiveRequests() {
+		return new ModelAndView("archive", "medical_requests", medicalRequestManager.listArchiveRequest());
+	}
 
 	@RequestMapping("/show_crews")
-	public ModelAndView showCrews(){return new ModelAndView("crews","crews",crewManager.listCrew());}
-
-	@RequestMapping("/show_institutions")
-	public ModelAndView showInstitutions(){return new ModelAndView("institutions","institutions",institutionManager.listOfInstitutions());}
-
-	@RequestMapping("/departure_point_info")
-	public ModelAndView showCoordinates(@RequestParam(value="id") long id) {
-		return new ModelAndView("coordinates","medical_requests",medicalRequestManager.showCoordinates(id));
+	public ModelAndView showCrews() {
+		return new ModelAndView("crews", "crews", crewManager.listCrew());
 	}
 
-	@RequestMapping(value = "/add_request", method = RequestMethod.POST)
-	public ModelAndView addMedicalRequest(){
+	@RequestMapping("/show_institutions")
+	public ModelAndView showInstitutions() {
+		return new ModelAndView("institutions", "institutions", institutionManager.listOfInstitutions());
+	}
+
+	@RequestMapping("/departure_point_info")
+	public ModelAndView showCoordinates(@RequestParam(value = "id") long id) {
+		return new ModelAndView("coordinates", "medical_requests", medicalRequestManager.showCoordinates(id));
+	}
+
+	@RequestMapping(value = "/open_add_request_page", method = RequestMethod.POST)
+	public ModelAndView addMedicalRequest() {
 		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("crews",crewManager.listCrew());
-		model.put("institutions",institutionManager.listOfInstitutions());
-		return new ModelAndView("add_request",model);
+		model.put("crews", crewManager.listCrew());
+		model.put("institutions", institutionManager.listOfInstitutions());
+		return new ModelAndView("add_request", model);
+	}
+
+	@RequestMapping(value = "/open_add_crew_page",method = RequestMethod.POST)
+	public String openAddCrewPage(Model model){
+		return "add_crew";
 	}
 
 	@RequestMapping("/close_request")
-	public ModelAndView moveToArchive(@RequestParam(value="id") long id) {
+	public ModelAndView moveToArchive(@RequestParam(value = "id") long id) {
 		medicalRequestManager.moveToArchive(id);
 		return new ModelAndView("index", "medical_requests", medicalRequestManager.listActiveMedicalRequests());
 	}
-//
-//	@RequestMapping(value = "/process_checked", method = RequestMethod.POST)
-//	public ModelAndView processChecked(HttpServletRequest request) {
-//		String[] str = request.getParameterValues("selectrow[]");
-//		String whatToDo = request.getParameter("submit");
-//		if (str != null)
-//			for (String idstr : str) {
-//				if (whatToDo.equals("delete")) {
-//					crewManager.delete(Long.valueOf(idstr));
-//				} else if (whatToDo.equals("restore")) {
-//					crewManager.restoreFromTrash(Long.valueOf(idstr));
-//				}
-//			}
-//		return new ModelAndView("trash", "advs", crewManager.listBin());
-//	}
-//
-//	@RequestMapping("/image/{file_id}")
-//	public void getFile(HttpServletRequest request, HttpServletResponse response, @PathVariable("file_id") long fileId) {
-//		try {
-//			byte[] content = crewManager.getPhoto(fileId);
-//			response.setContentType("image/png");
-//			response.getOutputStream().write(content);
-//		} catch (IOException ex) {
-//			ex.printStackTrace();
-//		}
-//	}
-//
-//@RequestMapping(value = "/add", method = RequestMethod.POST)
-//public ModelAndView addAdv(@RequestParam(value="name") String name,
-//						   @RequestParam(value="shortDesc") String shortDesc,
-//						   @RequestParam(value="longDesc", required=false) String longDesc,
-//						   @RequestParam(value="phone") String phone,
-//						   @RequestParam(value="price") double price,
-//						   @RequestParam(value="photo") MultipartFile photo,
-//						   HttpServletRequest request,
-//						   HttpServletResponse response)
-//{
-//	try {
-//		Advertisement adv = new Advertisement(
-//				name, shortDesc, longDesc, phone, price,
-//				photo.isEmpty() ? null : new Photo(photo.getOriginalFilename(), photo.getBytes())
-//		);
-//		crewManager.add(adv);
-//		return new ModelAndView("index", "advs", crewManager.list());
-//	} catch (IOException ex) {
-//		response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-//		return null;
-//	}
-//}
-//
-//	@RequestMapping("/load_xml")
-//	public ModelAndView importXml(@RequestParam(value = "xmlfile") MultipartFile mfile) {
-//		InputStream inputStream = null;
-//		Reader reader = null;
-//		try {
-//			inputStream = mfile.getInputStream();
-//			reader = new InputStreamReader(inputStream, "UTF-8");
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		JAXBContext jaxbContext = null;
-//		Unmarshaller unmarshaller = null;
-//		AdvertisementList advList = null;
-//		try {
-//			jaxbContext = JAXBContext.newInstance(AdvertisementList.class);
-//			unmarshaller = jaxbContext.createUnmarshaller();
-//			advList = (AdvertisementList) unmarshaller.unmarshal(reader);
-//		} catch (JAXBException e) {
-//			e.printStackTrace();
-//		}
-//		for (Advertisement adv : advList.getAdvList()) {
-//			adv.setTo_del(false);
-//			crewManager.add(adv);
-//		}
-//		return new ModelAndView("index", "advs", crewManager.list());
-//	}
+
+	@RequestMapping(value = "/delete_crew")
+	public ModelAndView deleteCrew(@RequestParam(value = "id") long id){
+		crewManager.deleteCrew(id);
+		return new ModelAndView("crews","crews",crewManager.listCrew());
+	}
+
+	@RequestMapping(value = "/add_crew", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	public ModelAndView addAdv(@RequestParam(value = "crewName") String crewName,
+							   @RequestParam(value = "member1Name") String member1Name,
+							   @RequestParam(value = "member2Name") String member2Name,
+							   @RequestParam(value = "car") String car,
+							   @RequestParam(value = "reanimation") String reanimation,
+							   HttpServletRequest request,
+							   HttpServletResponse response) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		Crew crew = new Crew(
+                crewName, member1Name, member2Name, car);
+		System.out.println(reanimation);
+		System.out.println(member1Name);
+		crew.setReanimation((reanimation=="Присутствует") ? true : false);
+		crewManager.addCrew(crew);
+		return new ModelAndView("crews", "crews", crewManager.listCrew());
+	}
 }

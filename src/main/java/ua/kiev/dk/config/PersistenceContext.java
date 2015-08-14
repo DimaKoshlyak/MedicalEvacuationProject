@@ -29,7 +29,7 @@ public class PersistenceContext {
     private static final String[] ENTITY_PACKAGES = {
             "ua.kiev.dk.entities"
     };
-    private final static String PROPERTY_DB_URL = "jdbc:mysql://localhost:3306/MedicalAutomation";
+    private final static String PROPERTY_DB_URL = "jdbc:mysql://localhost:3306/MedicalAutomation?useUnicode=true&characterEncoding=UTF-8";
     private final static String PROPERTY_DB_USER_NAME = "root";
     private final static String PROPERTY_DB_USER_PASSWORD = "r00t";
     private final static String PROPERTY_DB_DRIVER_CLASS = "com.mysql.jdbc.Driver";

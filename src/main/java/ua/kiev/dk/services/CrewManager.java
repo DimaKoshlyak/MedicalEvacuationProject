@@ -10,4 +10,7 @@ import java.util.List;
 public interface CrewManager {
 
     List<Crew> listCrew();
+    void addCrew(Crew crew);
+    void deleteCrew(long id);
+
 }

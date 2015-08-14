@@ -23,5 +23,15 @@ public class CrewManagerImpl implements CrewManager {
     public List<Crew> listCrew() {
         return crewRepository.findAll();
     }
+
+    @Override
+    public void addCrew(Crew crew) {
+        crewRepository.save(crew);
     }
+
+    @Override
+    public void deleteCrew(long id) {
+        crewRepository.delete(id);
+    }
+}
 

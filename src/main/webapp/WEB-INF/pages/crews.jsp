@@ -18,6 +18,7 @@
       <td><b>Член экипажа 2</b></td>
       <td><b>Автомобиль</b></td>
       <td><b>Реанимация</b></td>
+      <td><b>Операции</b></td>
     </tr>
     </thead>
     <c:forEach items="${crews}" var="crew">
@@ -27,9 +28,15 @@
         <td>${crew.member2Name}</td>
         <td>${crew.car}</td>
         <td>${crew.reanimation}</td>
+        <td>
+          <a href="/MedAutomation/delete_crew?id=${crew.id}">Удалить экипаж</a>
+        </td>
       </tr>
     </c:forEach>
   </table>
+  <form class="form-inline" role="form" action="/MedAutomation/open_add_crew_page" method="post">
+    <input type="submit" class="btn btn-primary" value="Добавить экипаж">
+  </form>
   </div>
 </body>
 </html>
