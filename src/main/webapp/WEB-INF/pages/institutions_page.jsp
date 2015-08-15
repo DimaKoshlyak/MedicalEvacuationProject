@@ -33,7 +33,7 @@
     </c:forEach>
   </table>
   <form class="form-inline" role="form" action="/MedAutomation/open_add_institution_page" method="post">
-    <input type="submit" class="btn btn-primary" value="Добавить экипаж">
+    <input type="submit" class="btn btn-primary" value="Добавить лечебной учреждение">
   </form>
 </div>
 </body>

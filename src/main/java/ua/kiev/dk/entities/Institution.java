@@ -18,11 +18,11 @@ public class Institution {
 
     @Column(name = "institution_type")
     private String institutionType;
-@Column(name = "institutionCity")
+    @Column(name = "city")
     private String institutionCity;
-@Column(name = "coordinate_x")
+    @Column(name = "coordinate_x")
     private String institutionCoordinateX;
-@Column(name = "coordinate_y")
+    @Column(name = "coordinate_y")
     private String institutionCoordinateY;
 
     public Institution(String institutionName, String institutionType, String institutionCity, String institutionCoordinateX, String institutionCoordinateY) {
@@ -33,7 +33,8 @@ public class Institution {
         this.institutionCoordinateY = institutionCoordinateY;
     }
 
-    public Institution(){}
+    public Institution() {
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -47,6 +48,7 @@ public class Institution {
 
         return institutionName;
     }
+
     public void setInstitutionType(String institutionType) {
         this.institutionType = institutionType;
     }

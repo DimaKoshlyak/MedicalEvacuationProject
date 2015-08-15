@@ -33,5 +33,10 @@ public class CrewManagerImpl implements CrewManager {
     public void deleteCrew(long id) {
         crewRepository.delete(id);
     }
+
+    @Override
+    public Crew returnCrewFromName(String crewName) {
+        return crewRepository.findByCrewName(crewName);
+    }
 }
 

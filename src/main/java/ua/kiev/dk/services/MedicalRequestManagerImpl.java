@@ -38,4 +38,9 @@ public class MedicalRequestManagerImpl implements MedicalRequestManager{
         MedicalRequest medicalRequest = medicalRequestRepository.findOne(id);
         return medicalRequest;
     }
+
+    @Override
+    public void addMedicalRequest(MedicalRequest medicalRequest) {
+        medicalRequestRepository.save(medicalRequest);
+    }
 }

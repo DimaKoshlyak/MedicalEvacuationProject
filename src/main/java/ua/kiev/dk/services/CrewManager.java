@@ -12,5 +12,6 @@ public interface CrewManager {
     List<Crew> listCrew();
     void addCrew(Crew crew);
     void deleteCrew(long id);
+    Crew returnCrewFromName(String crewName);
 
 }

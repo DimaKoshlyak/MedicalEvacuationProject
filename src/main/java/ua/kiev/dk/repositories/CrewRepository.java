@@ -11,4 +11,5 @@ import ua.kiev.dk.entities.Crew;
 @Transactional
 @Repository
 public interface CrewRepository extends JpaRepository<Crew,Long> {
+    Crew findByCrewName(String crewName);
 }

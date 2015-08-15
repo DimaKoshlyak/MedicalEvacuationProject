@@ -13,7 +13,7 @@ public class MedicalRequest {
     @GeneratedValue
     private long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE, fetch=FetchType.EAGER)
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
@@ -36,27 +36,24 @@ public class MedicalRequest {
     private String departurePointCoordinateX;
     @Column(name = "departure_point_coordinate_y")
     private String departurePointCoordinateY;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinColumn(name = "destination_institute_id")
     private Institution destinationInstitute;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "evacuation_crew_id")
     private Crew evacuationCrew;
     private Date timestamp;
     @Column(name = "active_request")
     private boolean activeRequest;
 
-    public MedicalRequest(Unit unit, String status, String injury, boolean painReaction, String breath, String pressure,
-                          boolean extremityAvulsion, String careType, String departurePointName,
-                          String departurePointCoordinateX, String departurePointCoordinateY,
+    public MedicalRequest(Unit unit, String status, String injury, String breath, String pressure, String careType,
+                          String departurePointName, String departurePointCoordinateX, String departurePointCoordinateY,
                           Institution destinationInstitute, Crew evacuationCrew) {
         this.unit = unit;
         this.status = status;
         this.injury = injury;
-        this.painReaction = painReaction;
         this.breath = breath;
         this.bloodPressure = pressure;
-        this.extremityAvulsion = extremityAvulsion;
         this.careType = careType;
         this.departurePointName = departurePointName;
         this.departurePointCoordinateX = departurePointCoordinateX;

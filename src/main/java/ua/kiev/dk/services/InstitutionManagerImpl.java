@@ -31,4 +31,9 @@ public class InstitutionManagerImpl implements InstitutionManager {
     public void addInstitution(Institution institution) {
         institutionRepository.save(institution);
     }
+
+    @Override
+    public Institution returnInstitutionFromName(String institutionName) {
+        return institutionRepository.findByInstitutionName(institutionName);
+    }
 }

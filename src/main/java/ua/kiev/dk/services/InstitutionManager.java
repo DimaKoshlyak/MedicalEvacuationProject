@@ -11,4 +11,5 @@ public interface InstitutionManager {
    List<Institution> listOfInstitutions();
    void deleteInstitution(long id);
    void addInstitution(Institution institution);
+   Institution returnInstitutionFromName(String institutionName);
 }

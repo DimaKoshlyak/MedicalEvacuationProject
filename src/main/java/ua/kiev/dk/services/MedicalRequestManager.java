@@ -13,4 +13,5 @@ public interface MedicalRequestManager {
     List<MedicalRequest> listArchiveRequest();
     void moveToArchive(long id);
     MedicalRequest showCoordinates(long id);
+    void addMedicalRequest(MedicalRequest medicalRequest);
 }
