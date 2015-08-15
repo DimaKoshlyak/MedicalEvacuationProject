@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface InstitutionManager {
    List<Institution> listOfInstitutions();
+   void deleteInstitution(long id);
+   void addInstitution(Institution institution);
 }

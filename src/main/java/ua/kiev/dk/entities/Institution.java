@@ -18,19 +18,19 @@ public class Institution {
 
     @Column(name = "institution_type")
     private String institutionType;
-
-    private String city;
+@Column(name = "institutionCity")
+    private String institutionCity;
 @Column(name = "coordinate_x")
-    private String coordinateX;
+    private String institutionCoordinateX;
 @Column(name = "coordinate_y")
-    private String coordinateY;
+    private String institutionCoordinateY;
 
-    public Institution(String institutionName, String institutionType, String city, String coordinateX, String coordinateY) {
+    public Institution(String institutionName, String institutionType, String institutionCity, String institutionCoordinateX, String institutionCoordinateY) {
         this.institutionName = institutionName;
         this.institutionType = institutionType;
-        this.city = city;
-        this.coordinateX = coordinateX;
-        this.coordinateY = coordinateY;
+        this.institutionCity = institutionCity;
+        this.institutionCoordinateX = institutionCoordinateX;
+        this.institutionCoordinateY = institutionCoordinateY;
     }
 
     public Institution(){}
@@ -51,16 +51,16 @@ public class Institution {
         this.institutionType = institutionType;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setInstitutionCity(String institutionCity) {
+        this.institutionCity = institutionCity;
     }
 
-    public void setCoordinateX(String coordinateX) {
-        this.coordinateX = coordinateX;
+    public void setInstitutionCoordinateX(String institutionCoordinateX) {
+        this.institutionCoordinateX = institutionCoordinateX;
     }
 
-    public void setCoordinateY(String coordinateY) {
-        this.coordinateY = coordinateY;
+    public void setInstitutionCoordinateY(String institutionCoordinateY) {
+        this.institutionCoordinateY = institutionCoordinateY;
     }
 
     public long getId() {
@@ -71,15 +71,15 @@ public class Institution {
         return institutionType;
     }
 
-    public String getCity() {
-        return city;
+    public String getInstitutionCity() {
+        return institutionCity;
     }
 
-    public String getCoordinateX() {
-        return coordinateX;
+    public String getInstitutionCoordinateX() {
+        return institutionCoordinateX;
     }
 
-    public String getCoordinateY() {
-        return coordinateY;
+    public String getInstitutionCoordinateY() {
+        return institutionCoordinateY;
     }
 }

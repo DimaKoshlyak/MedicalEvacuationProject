@@ -21,4 +21,14 @@ public class InstitutionManagerImpl implements InstitutionManager {
     public List<Institution> listOfInstitutions() {
         return institutionRepository.findAll();
     }
+
+    @Override
+    public void deleteInstitution(long id) {
+        institutionRepository.delete(id);
+    }
+
+    @Override
+    public void addInstitution(Institution institution) {
+        institutionRepository.save(institution);
+    }
 }

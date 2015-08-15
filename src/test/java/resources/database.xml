@@ -7,11 +7,11 @@
     <CREWS id="4" crew_name="ATO-04" member1_name="Makar" member2_name="Igor" car="TOYOTA" reanimation="1"/>
     <CREWS id="5" crew_name="ATO-05" member1_name="Kolya" member2_name="Kasper" car="Mercedes" reanimation="1"/>
 
-    <INSTITUTIONS id="1" type_of_instituition="hospital" city="Harkov" coordinate_x="1.4424220" coordinate_y="43.2342423" />
-    <INSTITUTIONS id="2" type_of_instituition="hospital" city="Kiev" coordinate_x="53.4424220" coordinate_y="4.2342423" />
-    <INSTITUTIONS id="3" type_of_instituition="hospital" city="Lvov" coordinate_x="34.4424220" coordinate_y="3.2342423" />
-    <INSTITUTIONS id="4" type_of_instituition="hospital" city="Dnepr" coordinate_x="25.4424220" coordinate_y="53.2342423" />
-    <INSTITUTIONS id="5" type_of_instituition="hospital" city="Krivoy Rog" coordinate_x="12.4424220" coordinate_y="23.2342423" />
+    <INSTITUTIONS id="1" type_of_instituition="hospital" institutionCity="Harkov" coordinate_x="1.4424220" coordinate_y="43.2342423" />
+    <INSTITUTIONS id="2" type_of_instituition="hospital" institutionCity="Kiev" coordinate_x="53.4424220" coordinate_y="4.2342423" />
+    <INSTITUTIONS id="3" type_of_instituition="hospital" institutionCity="Lvov" coordinate_x="34.4424220" coordinate_y="3.2342423" />
+    <INSTITUTIONS id="4" type_of_instituition="hospital" institutionCity="Dnepr" coordinate_x="25.4424220" coordinate_y="53.2342423" />
+    <INSTITUTIONS id="5" type_of_instituition="hospital" institutionCity="Krivoy Rog" coordinate_x="12.4424220" coordinate_y="23.2342423" />
 
     <UNITS id="1" first_name="Alexandr" last_name="Vasiliev" sex="male" battalion="95" blood_type="3-" weight="78" token_number="1111" description="test"/>
     <UNITS id="1" first_name="Dmytriy" last_name="Alexandrov" sex="male" battalion="95" blood_type="1+" weight="90" token_number="2222" description="test"/>

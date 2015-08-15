@@ -37,7 +37,8 @@
                 <td>${medicalrequest.injury}</td>
                 <td>${medicalrequest.bloodPressure}</td>
                 <td>${medicalrequest.extremityAvulsion}</td>
-                <td><a href="/MedAutomation/departure_point_info?id=${medicalrequest.id}" target="_blank">Детальнее</a></td>
+                <td><a href="/MedAutomation/departure_point_info?id=${medicalrequest.id}" target="_blank">Детальнее</a>
+                </td>
                 <td>${medicalrequest.evacuationCrew.crewName}</td>
                 <td>${medicalrequest.timestamp}</td>
                 <td>
@@ -49,52 +50,24 @@
 
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"> <a href="/MedAutomation/show_archive">Показать архивные заявки</a></button>
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_archive">Показать архивные
+                заявки</a></button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_crews" target="_blank">Показать экипажи</a></button>
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_crews" target="_blank">Показать
+                экипажи</a></button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Показать лечебные заведения</a></button>
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Показать
+                лечебные заведения</a></button>
         </div>
     </div>
-<div>
-    <form class="form-inline" role="form" action="/MedAutomation/open_add_request_page" method="post">
-        <input type="submit" class="btn btn-primary" value="Добавить заявку">
-    </form>
-</div>
-    <!--form class="form-inline" role="form" action="/SpringMVC/trash_page" method="post">
-        <input type="submit" class="btn btn-primary" value="Show Thash">
-    </form>
-    <form class="form-inline" role="form" action="/SpringMVC/load_xml" method="post">
-        <input type="submit" class="btn btn-primary" value="Load XML File">
-    </form>
--->
-
-
-   <!--table class="table table-striped">
-        <tr>
-            <td>
-                <form action="/SpringMVC/add_page" method="post">
-                    <input type="submit" value="Add new"class="btn btn-primary">
-                </form>
-            </td>
-            <td>
-                <form action="/SpringMVC/trash_page" method="post">
-                    <input type="submit" value="Show Thash" class="btn btn-primary">
-                </form>
-            <td>
-                <form  enctype="multipart/form-data" class="form-horizontal" role="form" action="/SpringMVC/load_xml" method="post">
-                    <table>
-                        <tr>
-                            <td > <input type="file" name="xmlfile"></td>
-                            <td width="200"> <input type="submit" value="Load XML File"></td>
-                        </tr>
-                    </table>
-                </form>
-            </td>
-        </tr>
-    </table-->
+    <br>
+    <div>
+        <form class="form-inline" role="form" action="/MedAutomation/open_add_request_page" method="post">
+            <input type="submit" class="btn btn-primary" value="Добавить заявку">
+        </form>
+    </div>
 
 </div>
 </body>
