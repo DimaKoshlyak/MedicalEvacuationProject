@@ -3,10 +3,28 @@
 <html>
 <head>
     <title>Активные заявки на эвакуацию</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/MedAutomation/">Активные заявки</a></li>
+                <li><a href="/MedAutomation/show_crews">Экипажи</a></li>
+                <li><a href="/MedAutomation/show_institutions">Лечебные учреждения</a></li>
+                <li><a href="/MedAutomation/show_all_units">Раненые</a></li>
+                <li><a href="/MedAutomation/show_archive">Архивные</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
     <h3>Активные заявки на эвакуацию</h3>
 
@@ -19,7 +37,7 @@
         <thead>
         <tr>
 
-            <td><b>Id пострадавшего</b></td>
+            <td><b>Пострадавший</b></td>
             <td><b>Состояние</b></td>
             <td><b>Тип ранения</b></td>
             <td><b>Давление</b></td>
@@ -32,7 +50,7 @@
         </thead>
         <c:forEach items="${medical_requests}" var="medicalrequest">
             <tr>
-                <td>${medicalrequest.unit.lastName}</td>
+                <td>${medicalrequest.unit.lastName} ${medicalrequest.unit.firstName}</td>
                 <td>${medicalrequest.status}</td>
                 <td>${medicalrequest.injury}</td>
                 <td>${medicalrequest.bloodPressure}</td>
@@ -47,8 +65,13 @@
             </tr>
         </c:forEach>
     </table>
+    <div>
+        <form class="form-inline" role="form" action="/MedAutomation/open_add_request_page" method="post">
+            <input type="submit" class="btn btn-primary" value="Добавить заявку">
+        </form>
+    </div>
 
-    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+    <!--div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"><a href="/MedAutomation/show_archive">Показать архивные
                 заявки</a></button>
@@ -62,15 +85,8 @@
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-default"><a href="/MedAutomation/show_all_units" target="_blank">Показать
                 всех раненых</a></button>
-        </div>
-    </div>
-    <br>
-    <div>
-        <form class="form-inline" role="form" action="/MedAutomation/open_add_request_page" method="post">
-            <input type="submit" class="btn btn-primary" value="Добавить заявку">
-        </form>
-    </div>
-
+        </div-->
+</div>
 </div>
 </body>
 </html>

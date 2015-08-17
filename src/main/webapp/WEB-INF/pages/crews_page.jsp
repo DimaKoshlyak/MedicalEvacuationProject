@@ -8,6 +8,21 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/MedAutomation/">Активные заявки</a></li>
+        <li class="active"><a href="/MedAutomation/show_crews">Экипажи</a></li>
+        <li><a href="/MedAutomation/show_institutions">Лечебные учреждения</a></li>
+        <li><a href="/MedAutomation/show_all_units">Раненые</a></li>
+        <li><a href="/MedAutomation/show_archive">Архивные</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
   <h3>Экипажи</h3>
   <table class="table table-striped">
