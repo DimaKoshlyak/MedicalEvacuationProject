@@ -42,13 +42,16 @@ public class MainController {
 
     @RequestMapping("/show_archive")
     public ModelAndView showArchiveRequests() {
-        return new ModelAndView("archive", "medical_requests", medicalRequestManager.listArchiveRequest());
+        return new ModelAndView("archive", "medical_requests", medicalRequestManager.listArchiveRequests());
     }
 
     @RequestMapping("/show_crews")
     public ModelAndView showCrews() {
-        return new ModelAndView("crews_page", "crews", crewManager.listCrew());
+        return new ModelAndView("crews_page", "crews", crewManager.listCrews());
     }
+
+    @RequestMapping("/show_all_units")
+    public ModelAndView showUnits(){return  new ModelAndView("units_page","units",unitManager.listUnits());}
 
     @RequestMapping(value = "/show_institutions")
     public ModelAndView showInstitutions() {
@@ -63,7 +66,7 @@ public class MainController {
     @RequestMapping(value = "/open_add_request_page", method = RequestMethod.POST)
     public ModelAndView addMedicalRequest() {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("crews", crewManager.listCrew());
+        model.put("crews", crewManager.listCrews());
         model.put("institutions", institutionManager.listOfInstitutions());
         return new ModelAndView("add_request", model);
     }
@@ -103,7 +106,7 @@ public class MainController {
         Institution destinationInst = institutionManager.returnInstitutionFromName(destinationInstitution);
         Crew crew = crewManager.returnCrewFromName(evacuationCrew);
         MedicalRequest medicalRequest = new MedicalRequest(unit, status, injury, breath, bloodPressure, careType, departurePointName, departurePointCoordinateX, departurePointCoordinateY, destinationInst, crew);
-        medicalRequest.setPainReaction(painReaction.equals("Сохранена")?true:false);
+        medicalRequest.setPainReaction(painReaction.equals("Сохранена") ? true : false);
         medicalRequest.setExtremityAvulsion(extremityAvulsion.equals("Присутствует") ? true : false);
         medicalRequestManager.addMedicalRequest(medicalRequest);
         return new ModelAndView("index", "medical_requests", medicalRequestManager.listActiveMedicalRequests());

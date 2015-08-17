@@ -33,7 +33,7 @@ public class PersistenceTest {
 
         @Test
         public void findAll() {
-                Collection<Crew> crews = (List<Crew>) crewManager.listCrew();
+                Collection<Crew> crews = (List<Crew>) crewManager.listCrews();
                 assertEquals(4, crews.size());
         }
         }

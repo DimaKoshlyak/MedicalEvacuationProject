@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ua.kiev.dk.entities.Unit;
 import ua.kiev.dk.repositories.UnitRepository;
 
+import java.util.List;
+
 /**
  * Created by d.koshlyak on 10.08.2015.
  */
@@ -19,5 +21,10 @@ public class UnitManagerImpl implements UnitManager {
     @Override
     public void addUnit(Unit unit) {
         unitRepository.save(unit);
+    }
+
+    @Override
+    public List<Unit> listUnits() {
+        return unitRepository.findAll();
     }
 }

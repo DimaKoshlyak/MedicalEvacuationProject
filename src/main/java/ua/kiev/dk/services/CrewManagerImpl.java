@@ -20,7 +20,7 @@ public class CrewManagerImpl implements CrewManager {
     private CrewRepository crewRepository;
 
     @Override
-    public List<Crew> listCrew() {
+    public List<Crew> listCrews() {
         return crewRepository.findAll();
     }
 

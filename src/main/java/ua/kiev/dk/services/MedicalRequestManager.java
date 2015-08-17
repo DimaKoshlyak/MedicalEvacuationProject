@@ -10,7 +10,7 @@ import java.util.List;
 public interface MedicalRequestManager {
 
     List<MedicalRequest> listActiveMedicalRequests();
-    List<MedicalRequest> listArchiveRequest();
+    List<MedicalRequest> listArchiveRequests();
     void moveToArchive(long id);
     MedicalRequest showCoordinates(long id);
     void addMedicalRequest(MedicalRequest medicalRequest);

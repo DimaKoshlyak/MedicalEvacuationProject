@@ -54,12 +54,14 @@
                 заявки</a></button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_crews" target="_blank">Показать
-                экипажи</a></button>
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_crews" target="_blank">Экипажи</a></button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Показать
-                лечебные заведения</a></button>
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Лечебные заведения</a></button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_all_units" target="_blank">Показать
+                всех раненых</a></button>
         </div>
     </div>
     <br>

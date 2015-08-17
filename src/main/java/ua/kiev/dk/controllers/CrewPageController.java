@@ -41,12 +41,12 @@ public class CrewPageController {
                 crewName, member1Name, member2Name, car);
         crew.setReanimation((reanimation.equals("Присутствует")) ? true : false);
         crewManager.addCrew(crew);
-        return new ModelAndView("crews_page", "crews", crewManager.listCrew());
+        return new ModelAndView("crews_page", "crews", crewManager.listCrews());
     }
 
     @RequestMapping(value = "/delete_crew")
     public ModelAndView deleteCrew(@RequestParam(value = "id") long id){
         crewManager.deleteCrew(id);
-        return new ModelAndView("crews_page","crews",crewManager.listCrew());
+        return new ModelAndView("crews_page","crews",crewManager.listCrews());
     }
 }

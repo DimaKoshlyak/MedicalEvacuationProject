@@ -22,7 +22,7 @@ public class MedicalRequestManagerImpl implements MedicalRequestManager{
     }
 
     @Override
-    public List<MedicalRequest> listArchiveRequest(){
+    public List<MedicalRequest> listArchiveRequests(){
         return medicalRequestRepository.findByActiveRequest(false);
     }
 

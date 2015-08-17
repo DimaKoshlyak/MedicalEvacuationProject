@@ -28,7 +28,7 @@ CREATE TABLE Units(
 	blood_type VARCHAR(20) NOT NULL,
 	weight INT DEFAULT NULL,
 	token_number INT DEFAULT NULL,
-	description TEXT NOT NULL
+	description TEXT DEFAULT NULL
 );
 
 CREATE TABLE Medical_Requests(
