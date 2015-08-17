@@ -36,10 +36,10 @@ public class MedicalRequest {
     private String departurePointCoordinateX;
     @Column(name = "departure_point_coordinate_y")
     private String departurePointCoordinateY;
-    @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinColumn(name = "destination_institute_id")
     private Institution destinationInstitute;
-    @OneToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     @JoinColumn(name = "evacuation_crew_id")
     private Crew evacuationCrew;
     private Date timestamp;

@@ -1,6 +1,7 @@
 package ua.kiev.dk.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by d.koshlyak on 06.08.2015.
@@ -13,6 +14,8 @@ public class Institution {
     @Id
     @GeneratedValue
     private long id;
+    @OneToMany(mappedBy = "destinationInstitute",fetch = FetchType.EAGER)
+    private List<MedicalRequest> medicalRequest;
     @Column(name = "institution_name")
     private String institutionName;
 
@@ -83,5 +86,14 @@ public class Institution {
 
     public String getInstitutionCoordinateY() {
         return institutionCoordinateY;
+    }
+
+    public void setMedicalRequest(List<MedicalRequest> medicalRequest) {
+        this.medicalRequest = medicalRequest;
+    }
+
+    public List<MedicalRequest> getMedicalRequest() {
+
+        return medicalRequest;
     }
 }

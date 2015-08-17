@@ -1,6 +1,7 @@
 package ua.kiev.dk.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by d.koshlyak on 06.08.2015.
@@ -8,12 +9,15 @@ import javax.persistence.*;
 @Table(name = "crews")
 @Entity
 public class Crew {
-@Id
-@GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
-@Column(name = "crew_name")
+    @OneToMany(mappedBy = "evacuationCrew",fetch = FetchType.EAGER)
+    private List<MedicalRequest> medicalRequest;
+
+    @Column(name = "crew_name")
     private String crewName;
-@Column(name = "member1_name")
+    @Column(name = "member1_name")
     private String member1Name;
     @Column(name = "member2_name")
     private String member2Name;
@@ -29,7 +33,8 @@ public class Crew {
         this.car = car;
     }
 
-    public Crew(){}
+    public Crew() {
+    }
 
     public long getId() {
         return id;
@@ -77,5 +82,13 @@ public class Crew {
 
     public void setReanimation(boolean reanimation) {
         this.reanimation = reanimation;
+    }
+
+    public void setMedicalRequest(List<MedicalRequest> medicalRequest) {
+        this.medicalRequest = medicalRequest;
+    }
+    public List<MedicalRequest> getMedicalRequest() {
+
+        return medicalRequest;
     }
 }
