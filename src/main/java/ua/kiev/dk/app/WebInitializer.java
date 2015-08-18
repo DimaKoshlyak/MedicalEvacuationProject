@@ -5,6 +5,7 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import ua.kiev.dk.config.MVCContext;
 import ua.kiev.dk.config.PersistenceContext;
 
@@ -12,7 +13,7 @@ import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
-public class WebInitializer implements WebApplicationInitializer {
+public class WebInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext container) {
         AnnotationConfigWebApplicationContext persistenceContext = new AnnotationConfigWebApplicationContext();
@@ -31,5 +32,20 @@ public class WebInitializer implements WebApplicationInitializer {
         charEncodingfilterReg.setInitParameter("encoding", "UTF-8");
         charEncodingfilterReg.setInitParameter("forceEncoding", "true");
         charEncodingfilterReg.addMappingForUrlPatterns(null, false, "/*");
+    }
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[] {MVCContext.class}; // We dont need any special servlet config yet.
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return null;
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[] {"/"};
     }
 }
