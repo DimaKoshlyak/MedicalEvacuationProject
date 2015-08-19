@@ -35,7 +35,7 @@ public class MainController {
     @Autowired
     private UnitManager unitManager;
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/")
     public ModelAndView listMedRequests() {
         return new ModelAndView("index", "medical_requests", medicalRequestManager.listActiveMedicalRequests());
     }
@@ -56,6 +56,11 @@ public class MainController {
     @RequestMapping(value = "/show_institutions")
     public ModelAndView showInstitutions() {
         return new ModelAndView("institutions_page", "institutions", institutionManager.listOfInstitutions());
+    }
+
+    @RequestMapping(value = "/search",method = RequestMethod.POST)
+    public ModelAndView search(@RequestParam(value = "pattern") String pattern){
+        return new ModelAndView("index","medical_requests",medicalRequestManager.listByLastName(pattern));
     }
 
     @RequestMapping("/departure_point_info")

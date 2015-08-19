@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface MedicalRequestRepository extends JpaRepository<MedicalRequest,Long> {
     List<MedicalRequest> findByActiveRequest(boolean isActiveRequest);
+    List<MedicalRequest> findByUnitLastNameLike(String pattern);
 }

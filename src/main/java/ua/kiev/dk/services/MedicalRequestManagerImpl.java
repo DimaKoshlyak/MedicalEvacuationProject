@@ -27,6 +27,11 @@ public class MedicalRequestManagerImpl implements MedicalRequestManager{
     }
 
     @Override
+    public List<MedicalRequest> listByLastName(String pattern) {
+        return medicalRequestRepository.findByUnitLastNameLike(pattern);
+    }
+
+    @Override
     public void moveToArchive(long id) {
         MedicalRequest medicalRequest = medicalRequestRepository.findOne(id);
         medicalRequest.setActiveRequest(false);
