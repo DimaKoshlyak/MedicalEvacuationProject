@@ -70,23 +70,7 @@
             <input type="submit" class="btn btn-primary" value="Добавить заявку">
         </form>
     </div>
+</div>
 
-    <!--div class="btn-group btn-group-justified" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_archive">Показать архивные
-                заявки</a></button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_crews" target="_blank">Экипажи</a></button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_institutions" target="_blank">Лечебные заведения</a></button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default"><a href="/MedAutomation/show_all_units" target="_blank">Показать
-                всех раненых</a></button>
-        </div-->
-</div>
-</div>
 </body>
 </html>

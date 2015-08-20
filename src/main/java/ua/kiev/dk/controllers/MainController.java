@@ -1,5 +1,6 @@
 package ua.kiev.dk.controllers;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,8 @@ public class MainController {
     private InstitutionManager institutionManager;
     @Autowired
     private UnitManager unitManager;
+
+    private static Logger logger = Logger.getLogger(MainController.class);
 
     @RequestMapping(value = "/")
     public ModelAndView listMedRequests() {
