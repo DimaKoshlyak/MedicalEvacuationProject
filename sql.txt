@@ -2,12 +2,12 @@ CREATE DATABASE MedicalAutomation;
 USE MedicalAutomation;
 
 CREATE TABLE Crews (
-        id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        crew_name VARCHAR(100) NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    crew_name VARCHAR(100) NOT NULL,
 	member1_name VARCHAR(100) NOT NULL,
 	member2_name VARCHAR(100) NOT NULL,
 	car VARCHAR(100) NOT NULL,
-	reanimation BIT NOT NULL
+	reanimation VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Institutions(
@@ -36,10 +36,10 @@ CREATE TABLE Medical_Requests(
 	unit_id INT DEFAULT NULL,
 	status VARCHAR(100) DEFAULT NULL,
 	injury VARCHAR(100) NOT NULL,
-	pain_reaction BIT NOT NULL,
+	pain_reaction VARCHAR(20) NOT NULL,
 	breath VARCHAR(100) DEFAULT NULL,
 	blood_pressure VARCHAR(100) DEFAULT NULL,
-	extremity_avulsion BIT DEFAULT NULL,
+	extremity_avulsion VARCHAR(20) DEFAULT NULL,
 	care_type VARCHAR(200) DEFAULT NULL,
 	departure_point_name VARCHAR(100) NOT NULL,
 	departure_point_coordinate_x VARCHAR(100) DEFAULT NULL, 

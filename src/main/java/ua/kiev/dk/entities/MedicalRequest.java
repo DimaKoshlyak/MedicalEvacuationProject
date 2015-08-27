@@ -13,7 +13,7 @@ public class MedicalRequest {
     @GeneratedValue
     private long id;
 
-    @OneToOne(cascade = CascadeType.MERGE, fetch=FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "unit_id")
     private Unit unit;
 
@@ -21,13 +21,13 @@ public class MedicalRequest {
 
     private String injury;
     @Column(name = "pain_reaction")
-    private boolean painReaction;
+    private String painReaction;
 
     private String breath;
     @Column(name = "blood_pressure")
     private String bloodPressure;
     @Column(name = "extremity_avulsion")
-    private boolean extremityAvulsion;
+    private String extremityAvulsion;
     @Column(name = "care_type")
     private String careType;
     @Column(name = "departure_point_name")
@@ -36,24 +36,24 @@ public class MedicalRequest {
     private String departurePointCoordinateX;
     @Column(name = "departure_point_coordinate_y")
     private String departurePointCoordinateY;
-    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "destination_institute_id")
     private Institution destinationInstitute;
-    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "evacuation_crew_id")
     private Crew evacuationCrew;
     private Date timestamp;
     @Column(name = "active_request")
     private boolean activeRequest;
 
-    public MedicalRequest(Unit unit, String status, String injury, String breath, String pressure, String careType,
-                          String departurePointName, String departurePointCoordinateX, String departurePointCoordinateY,
-                          Institution destinationInstitute, Crew evacuationCrew) {
+    public MedicalRequest(Unit unit, String status, String injury, String painReaction, String breath, String bloodPressure, String extremityAvulsion, String careType, String departurePointName, String departurePointCoordinateX, String departurePointCoordinateY, Institution destinationInstitute, Crew evacuationCrew) {
         this.unit = unit;
         this.status = status;
         this.injury = injury;
+        this.painReaction = painReaction;
         this.breath = breath;
-        this.bloodPressure = pressure;
+        this.bloodPressure = bloodPressure;
+        this.extremityAvulsion = extremityAvulsion;
         this.careType = careType;
         this.departurePointName = departurePointName;
         this.departurePointCoordinateX = departurePointCoordinateX;
@@ -87,10 +87,6 @@ public class MedicalRequest {
         this.injury = injury;
     }
 
-    public void setPainReaction(boolean painReaction) {
-        this.painReaction = painReaction;
-    }
-
     public void setBreath(String breath) {
         this.breath = breath;
     }
@@ -99,9 +95,6 @@ public class MedicalRequest {
         this.bloodPressure = bloodPressure;
     }
 
-    public void setExtremityAvulsion(boolean extremityAvulsion) {
-        this.extremityAvulsion = extremityAvulsion;
-    }
 
     public void setCareType(String careType) {
         this.careType = careType;
@@ -127,6 +120,14 @@ public class MedicalRequest {
         this.evacuationCrew = evacuationCrew;
     }
 
+    public void setPainReaction(String painReaction) {
+        this.painReaction = painReaction;
+    }
+
+    public void setExtremityAvulsion(String extremityAvulsion) {
+        this.extremityAvulsion = extremityAvulsion;
+    }
+
     public Unit getUnit() {
         return unit;
     }
@@ -139,10 +140,6 @@ public class MedicalRequest {
         return injury;
     }
 
-    public boolean isPainReaction() {
-        return painReaction;
-    }
-
     public String getBreath() {
         return breath;
     }
@@ -151,7 +148,11 @@ public class MedicalRequest {
         return bloodPressure;
     }
 
-    public boolean isExtremityAvulsion() {
+    public String getPainReaction() {
+        return painReaction;
+    }
+
+    public String getExtremityAvulsion() {
         return extremityAvulsion;
     }
 

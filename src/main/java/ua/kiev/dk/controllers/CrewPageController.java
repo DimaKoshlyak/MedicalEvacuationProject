@@ -38,8 +38,7 @@ public class CrewPageController {
                                HttpServletRequest request,
                                HttpServletResponse response) {
         Crew crew = new Crew(
-                crewName, member1Name, member2Name, car);
-        crew.setReanimation((reanimation.equals("Присутствует")) ? true : false);
+                crewName, member1Name, member2Name, car,reanimation);
         crewManager.addCrew(crew);
         return new ModelAndView("crews_page", "crews", crewManager.listCrews());
     }

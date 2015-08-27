@@ -12,7 +12,7 @@ public class Crew {
     @Id
     @GeneratedValue
     private long id;
-    @OneToMany(mappedBy = "evacuationCrew",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "evacuationCrew", fetch = FetchType.EAGER)
     private List<MedicalRequest> medicalRequest;
 
     @Column(name = "crew_name")
@@ -24,13 +24,14 @@ public class Crew {
 
     private String car;
 
-    private boolean reanimation;
+    private String reanimation;
 
-    public Crew(String crewName, String member1Name, String member2Name, String car) {
+    public Crew(String crewName, String member1Name, String member2Name, String car, String reanimation) {
         this.crewName = crewName;
         this.member1Name = member1Name;
         this.member2Name = member2Name;
         this.car = car;
+        this.reanimation = reanimation;
     }
 
     public Crew() {
@@ -56,7 +57,7 @@ public class Crew {
         return car;
     }
 
-    public boolean isReanimation() {
+    public String getReanimation() {
         return reanimation;
     }
 
@@ -80,13 +81,14 @@ public class Crew {
         this.car = car;
     }
 
-    public void setReanimation(boolean reanimation) {
+    public void setReanimation(String reanimation) {
         this.reanimation = reanimation;
     }
 
     public void setMedicalRequest(List<MedicalRequest> medicalRequest) {
         this.medicalRequest = medicalRequest;
     }
+
     public List<MedicalRequest> getMedicalRequest() {
 
         return medicalRequest;

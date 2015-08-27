@@ -5,12 +5,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
 /**
  * Created by d.koshlyak on 18.08.2015.
  */
 @Configuration
 @EnableWebSecurity
+@EnableWebMvcSecurity
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -22,7 +24,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/protected/archive.jsp").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin();
+                .formLogin().loginPage("/login").permitAll()
+                .and()
+                .logout().permitAll();
     }
 
     @Override
