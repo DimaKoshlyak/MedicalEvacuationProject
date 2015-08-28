@@ -13,7 +13,7 @@
     <div class="col-md-2">
       <form class="form-horizontal" th:action='@{/login}' method="POST">
         <fieldset>
-          <legend>Please Login</legend>
+          <legend>Авторизация</legend>
           <!--div th:if="${param.error}" class="alert alert-error">
             Invalid username and password.
           </div>
@@ -22,14 +22,14 @@
           </div-->
           <div class="form-group">
             <!-- Username -->
-            <label c for="username">Username</label>
+            <label c for="username">Имя пользователя</label>
             <div class="controls">
               <input type="text" id="username" name="username" placeholder="" class="form-control input-xlarge ">
             </div>
           </div>
           <div class="form-group">
             <!-- Password-->
-            <label for="password">Password</label>
+            <label for="password">Пароль</label>
             <div class="controls">
               <input type="password" id="password" name="password" placeholder="" class="form-control input-xlarge">
             </div>

@@ -11,7 +11,7 @@ import java.util.List;
  * Created by d.koshlyak on 10.08.2015.
  */
 @Service("medicalRequestManager")
-public class MedicalRequestManagerImpl implements MedicalRequestManager{
+public class MedicalRequestManagerImpl implements MedicalRequestManager {
 
     @Autowired
     private MedicalRequestRepository medicalRequestRepository;
@@ -22,7 +22,7 @@ public class MedicalRequestManagerImpl implements MedicalRequestManager{
     }
 
     @Override
-    public List<MedicalRequest> listArchiveRequests(){
+    public List<MedicalRequest> listArchiveRequests() {
         return medicalRequestRepository.findByActiveRequest(false);
     }
 
@@ -39,7 +39,7 @@ public class MedicalRequestManagerImpl implements MedicalRequestManager{
     }
 
     @Override
-    public MedicalRequest showCoordinates(long id) {
+    public MedicalRequest showAllInfoAboutRequest(long id) {
         MedicalRequest medicalRequest = medicalRequestRepository.findOne(id);
         return medicalRequest;
     }

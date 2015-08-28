@@ -13,6 +13,6 @@ public interface MedicalRequestManager {
     List<MedicalRequest> listArchiveRequests();
     List<MedicalRequest> listByLastName(String pattern);
     void moveToArchive(long id);
-    MedicalRequest showCoordinates(long id);
     void addMedicalRequest(MedicalRequest medicalRequest);
+    MedicalRequest showAllInfoAboutRequest(long id);
 }

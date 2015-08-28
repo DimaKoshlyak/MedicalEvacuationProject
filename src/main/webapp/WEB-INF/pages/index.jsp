@@ -12,7 +12,7 @@
 <body>
 
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container">
         <div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/MedAutomation/">Активные заявки</a></li>
@@ -40,11 +40,10 @@
             <td><b>Пострадавший</b></td>
             <td><b>Состояние</b></td>
             <td><b>Тип ранения</b></td>
-            <td><b>Давление</b></td>
-            <td><b>Отрыв конечности</b></td>
             <td><b>Информация про эвакуацию</b></td>
             <td><b>Экипаж</b></td>
             <td><b>Время фиксации</b></td>
+            <td><b>Эвакуировать в</b></td>
             <td><b>Операции</b></td>
         </tr>
         </thead>
@@ -53,14 +52,15 @@
                 <td>${medicalrequest.unit.lastName} ${medicalrequest.unit.firstName}</td>
                 <td>${medicalrequest.status}</td>
                 <td>${medicalrequest.injury}</td>
-                <td>${medicalrequest.bloodPressure}</td>
-                <td>${medicalrequest.extremityAvulsion}</td>
                 <td><a href="/MedAutomation/departure_point_info?id=${medicalrequest.id}" target="_blank">Детальнее</a>
                 </td>
                 <td>${medicalrequest.evacuationCrew.crewName}</td>
                 <td>${medicalrequest.timestamp}</td>
+                <td>${medicalrequest.destinationInstitute.institutionName}</td>
                 <td>
                     <a href="/MedAutomation/close_request?id=${medicalrequest.id}">Завершить</a>
+                    <br>
+                    <a href="/MedAutomation/more__req_info?id=${medicalrequest.id}">Больше информации</a>
                 </td>
             </tr>
         </c:forEach>

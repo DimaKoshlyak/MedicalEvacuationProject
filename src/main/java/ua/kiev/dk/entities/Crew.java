@@ -3,9 +3,6 @@ package ua.kiev.dk.entities;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 06.08.2015.
- */
 @Table(name = "crews")
 @Entity
 public class Crew {

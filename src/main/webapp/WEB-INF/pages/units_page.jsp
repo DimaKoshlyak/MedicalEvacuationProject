@@ -10,7 +10,7 @@
 <body>
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <div>
       <ul class="nav navbar-nav">
         <li><a href="/MedAutomation/">Активные заявки</a></li>

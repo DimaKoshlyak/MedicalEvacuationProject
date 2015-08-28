@@ -43,6 +43,11 @@ public class MainController {
         return new ModelAndView("index", "medical_requests", medicalRequestManager.listActiveMedicalRequests());
     }
 
+    @RequestMapping("/more__req_info")
+    public ModelAndView showAllInformationAboutRequest(@RequestParam(value = "id") long id) {
+        return new ModelAndView("more_req_info", "medical_requests", medicalRequestManager.showAllInfoAboutRequest(id));
+    }
+
     @RequestMapping("/show_archive")
     public ModelAndView showArchiveRequests() {
         return new ModelAndView("archive", "medical_requests", medicalRequestManager.listArchiveRequests());
@@ -70,7 +75,7 @@ public class MainController {
 
     @RequestMapping("/departure_point_info")
     public ModelAndView showCoordinates(@RequestParam(value = "id") long id) {
-        return new ModelAndView("coordinates", "medical_requests", medicalRequestManager.showCoordinates(id));
+        return new ModelAndView("coordinates", "medical_requests", medicalRequestManager.showAllInfoAboutRequest(id));
     }
 
     @RequestMapping(value = "/open_add_request_page", method = RequestMethod.POST)
@@ -115,7 +120,8 @@ public class MainController {
         unitManager.addUnit(unit);
         Institution destinationInst = institutionManager.returnInstitutionFromName(destinationInstitution);
         Crew crew = crewManager.returnCrewFromName(evacuationCrew);
-        MedicalRequest medicalRequest = new MedicalRequest(unit, status, injury, painReaction, breath, bloodPressure, extremityAvulsion, careType, departurePointName, departurePointCoordinateX, departurePointCoordinateY, destinationInst, crew);;
+        MedicalRequest medicalRequest = new MedicalRequest(unit, status, injury, painReaction, breath, bloodPressure, extremityAvulsion, careType, departurePointName, departurePointCoordinateX, departurePointCoordinateY, destinationInst, crew);
+        ;
         medicalRequestManager.addMedicalRequest(medicalRequest);
         return new ModelAndView("index", "medical_requests", medicalRequestManager.listActiveMedicalRequests());
     }
