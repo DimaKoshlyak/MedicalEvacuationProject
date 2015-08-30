@@ -82,8 +82,8 @@
         <div class="form-group">
             <label for="extremityAvulsion">Отрыв конечности</label>
             <select class="form-control" id="extremityAvulsion" name="extremityAvulsion">
-                <option>Присутствует</option>
                 <option>Отсутствует</option>
+                <option>Присутствует</option>
             </select>
         </div>
         <div class="form-group">

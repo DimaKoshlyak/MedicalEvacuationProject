@@ -17,11 +17,11 @@
       <input type="text" class="form-control" name="crewName">
     </div>
     <div class="form-group">
-      <label>ФИО первого члена экипажа</label>
+      <label>ФИО/Позывной первого члена экипажа</label>
       <input type="text" class="form-control" name="member1Name">
     </div>
     <div class="form-group">
-      <label>ФИО второго члена экипажа</label>
+      <label>ФИО/Позывной второго члена экипажа</label>
       <input type="text" class="form-control" name="member2Name">
     </div>
     <div class="form-group">

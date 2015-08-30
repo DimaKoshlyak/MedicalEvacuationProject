@@ -60,7 +60,7 @@
                 <td>
                     <a href="/MedAutomation/close_request?id=${medicalrequest.id}">Завершить</a>
                     <br>
-                    <a href="/MedAutomation/more__req_info?id=${medicalrequest.id}">Больше информации</a>
+                    <a href="/MedAutomation/more__req_info?id=${medicalrequest.id}" target="_blank">Больше информации</a>
                 </td>
             </tr>
         </c:forEach>
