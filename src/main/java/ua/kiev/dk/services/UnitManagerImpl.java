@@ -7,10 +7,6 @@ import ua.kiev.dk.repositories.UnitRepository;
 
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 10.08.2015.
- */
-
 @Service("unitManager")
 public class UnitManagerImpl implements UnitManager {
 

@@ -14,10 +14,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * Created by d.koshlyak on 23.07.2015.
- */
-
 @Configuration
 @EnableJpaRepositories(basePackages = {
         "ua.kiev.dk.repositories"
@@ -55,7 +51,7 @@ public class PersistenceContext {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws Exception{
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws Exception {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 
         entityManagerFactory.setDataSource(dataSource());

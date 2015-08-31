@@ -14,9 +14,6 @@ import ua.kiev.dk.services.CrewManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created by d.koshlyak on 15.08.2015.
- */
 @Controller
 @RequestMapping("/MedAutomation")
 @ComponentScan("ua.kiev.dk")
@@ -25,11 +22,12 @@ public class CrewPageController {
     @Autowired
     private CrewManager crewManager;
 
-    @RequestMapping(value = "/open_add_crew_page",method = RequestMethod.POST)
-    public String openAddCrewPage(Model model){
+    @RequestMapping(value = "/open_add_crew_page", method = RequestMethod.POST)
+    public String openAddCrewPage(Model model) {
         return "add_crew";
     }
-    @RequestMapping(value = "/add_crew", method = RequestMethod.POST, produces={"text/html;charset=UTF-8"})
+
+    @RequestMapping(value = "/add_crew", method = RequestMethod.POST, produces = {"text/html;charset=UTF-8"})
     public ModelAndView addAdv(@RequestParam(value = "crewName") String crewName,
                                @RequestParam(value = "member1Name") String member1Name,
                                @RequestParam(value = "member2Name") String member2Name,
@@ -38,14 +36,14 @@ public class CrewPageController {
                                HttpServletRequest request,
                                HttpServletResponse response) {
         Crew crew = new Crew(
-                crewName, member1Name, member2Name, car,reanimation);
+                crewName, member1Name, member2Name, car, reanimation);
         crewManager.addCrew(crew);
         return new ModelAndView("crews_page", "crews", crewManager.listCrews());
     }
 
     @RequestMapping(value = "/delete_crew")
-    public ModelAndView deleteCrew(@RequestParam(value = "id") long id){
+    public ModelAndView deleteCrew(@RequestParam(value = "id") long id) {
         crewManager.deleteCrew(id);
-        return new ModelAndView("crews_page","crews",crewManager.listCrews());
+        return new ModelAndView("crews_page", "crews", crewManager.listCrews());
     }
 }

@@ -2,10 +2,6 @@ package ua.kiev.dk.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by d.koshlyak on 06.08.2015.
- */
-
 @Table(name = "units")
 @Entity
 public class Unit {

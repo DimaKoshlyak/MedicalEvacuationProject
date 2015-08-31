@@ -8,9 +8,6 @@ import ua.kiev.dk.repositories.CrewRepository;
 
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 07.08.2015.
- */
 @Service("crewManager")
 public class CrewManagerImpl implements CrewManager {
 

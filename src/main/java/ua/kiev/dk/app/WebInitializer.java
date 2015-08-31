@@ -14,7 +14,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
 
-public class WebInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer {
+public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext container) {
         AnnotationConfigWebApplicationContext persistenceContext = new AnnotationConfigWebApplicationContext();
@@ -37,7 +37,7 @@ public class WebInitializer  extends AbstractAnnotationConfigDispatcherServletIn
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {MVCContext.class}; // We dont need any special servlet config yet.
+        return new Class[]{MVCContext.class};
     }
 
     @Override
@@ -47,6 +47,6 @@ public class WebInitializer  extends AbstractAnnotationConfigDispatcherServletIn
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {"/"};
+        return new String[]{"/"};
     }
 }

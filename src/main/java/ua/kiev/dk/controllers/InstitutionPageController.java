@@ -14,9 +14,6 @@ import ua.kiev.dk.services.InstitutionManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created by d.koshlyak on 15.08.2015.
- */
 @Controller
 @RequestMapping("/MedAutomation")
 @ComponentScan("ua.kiev.dk")
@@ -26,8 +23,8 @@ public class InstitutionPageController {
     private InstitutionManager institutionManager;
 
 
-    @RequestMapping(value = "/open_add_institution_page",method = RequestMethod.POST)
-    public String openAddInstitutionPage(Model model){
+    @RequestMapping(value = "/open_add_institution_page", method = RequestMethod.POST)
+    public String openAddInstitutionPage(Model model) {
         return "add_institution";
     }
 
@@ -37,7 +34,7 @@ public class InstitutionPageController {
         return new ModelAndView("institutions_page", "institutions", institutionManager.listOfInstitutions());
     }
 
-    @RequestMapping(value = "/add_institution", method = RequestMethod.POST, produces={"text/html;charset=UTF-8"})
+    @RequestMapping(value = "/add_institution", method = RequestMethod.POST, produces = {"text/html;charset=UTF-8"})
     public ModelAndView addAdv(@RequestParam(value = "institutionName") String institutionName,
                                @RequestParam(value = "institutionType") String institutionType,
                                @RequestParam(value = "institutionCity") String institutionCity,
@@ -45,7 +42,7 @@ public class InstitutionPageController {
                                @RequestParam(value = "institutionCoordinateY") String institutionCoordinateY,
                                HttpServletRequest request,
                                HttpServletResponse response) {
-        Institution institution = new Institution(institutionName,institutionType,institutionCity,institutionCoordinateX,institutionCoordinateY);
+        Institution institution = new Institution(institutionName, institutionType, institutionCity, institutionCoordinateX, institutionCoordinateY);
         institutionManager.addInstitution(institution);
         return new ModelAndView("institutions_page", "institutions", institutionManager.listOfInstitutions());
     }

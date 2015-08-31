@@ -3,10 +3,6 @@ package ua.kiev.dk.entities;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 06.08.2015.
- */
-
 @Table(name = "institutions")
 @Entity
 public class Institution {
@@ -14,7 +10,7 @@ public class Institution {
     @Id
     @GeneratedValue
     private long id;
-    @OneToMany(mappedBy = "destinationInstitute",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "destinationInstitute", fetch = FetchType.EAGER)
     private List<MedicalRequest> medicalRequest;
     @Column(name = "institution_name")
     private String institutionName;

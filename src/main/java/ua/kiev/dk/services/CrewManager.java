@@ -4,14 +4,14 @@ import ua.kiev.dk.entities.Crew;
 
 import java.util.List;
 
-/**
- * Created by d.koshlyak on 07.08.2015.
- */
 public interface CrewManager {
 
     List<Crew> listCrews();
+
     void addCrew(Crew crew);
+
     void deleteCrew(long id);
+
     Crew returnCrewFromName(String crewName);
 
 }
