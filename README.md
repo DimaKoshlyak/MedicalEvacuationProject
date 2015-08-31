@@ -6,6 +6,7 @@
 <b>Используемые технологии:</b> XML, HTML, Bootstrap, MySQL, JSP, JPA, Hibernate, SpringMVC, Spring Data JPA, Spring Security, Maven, Tomcat.
 
 <b>Страница входа на сайт</b>
+
 <a target="_blank" href="http://radikal.ru/big/b3337f74a63a40079d8ed5e657eddca9"><img src="http://s019.radikal.ru/i600/1508/80/2dd625bcb8f6.jpg" ></a>
 
 <b>Основная страница</b>
