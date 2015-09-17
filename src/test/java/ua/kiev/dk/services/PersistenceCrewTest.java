@@ -11,7 +11,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
-import ua.kiev.dk.config.PersistenceContext;
+import ua.kiev.dk.config.PersistenceContextTest;
 import ua.kiev.dk.entities.Crew;
 
 import java.util.Collection;
@@ -21,16 +21,21 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class,
         TransactionalTestExecutionListener.class, DbUnitTestExecutionListener.class})
-@SpringApplicationConfiguration(classes = {PersistenceContext.class})
+@SpringApplicationConfiguration(classes = {PersistenceContextTest.class})
 @WebAppConfiguration
-public class PersistenceTest {
+public class PersistenceCrewTest {
     @Autowired
     private CrewManager crewManager;
 
     @Test
-    public void findAll() throws Exception {
+    public void findAllCrews() {
         Collection<Crew> crews = crewManager.listCrews();
         assertEquals(4, crews.size());
+    }
+
+    @Test
+    public void findOneCrew() {
+        assertEquals("ASAP1", crewManager.returnCrewFromName("ASAP1").getCrewName());
     }
 }
 
