@@ -5,11 +5,11 @@
     <CREWS id="4" crew_name="ATO-04" member1_name="Makar" member2_name="Igor" car="TOYOTA" reanimation="yes"/>
     <CREWS id="5" crew_name="ATO-05" member1_name="Kolya" member2_name="Kasper" car="Mercedes" reanimation="yes"/>
 
-    <INSTITUTIONS id="1" institution_type="hospital" city="Harkov" coordinate_x="1.4424220" coordinate_y="43.2342423" />
-    <INSTITUTIONS id="2" institution_type="hospital" city="Kiev" coordinate_x="53.4424220" coordinate_y="4.2342423" />
-    <INSTITUTIONS id="3" institution_type="hospital" city="Lvov" coordinate_x="34.4424220" coordinate_y="3.2342423" />
-    <INSTITUTIONS id="4" institution_type="hospital" city="Dnepr" coordinate_x="25.4424220" coordinate_y="53.2342423" />
-    <INSTITUTIONS id="5" institution_type="hospital" city="Krivoy Rog" coordinate_x="12.4424220" coordinate_y="23.2342423" />
+    <INSTITUTIONS id="1" institution_name = "hospital_1" institution_type="hospital" city="Harkov" coordinate_x="1.4424220" coordinate_y="43.2342423" />
+    <INSTITUTIONS id="2" institution_name = "hospital_2" institution_type="hospital" city="Kiev" coordinate_x="53.4424220" coordinate_y="4.2342423" />
+    <INSTITUTIONS id="3" institution_name = "hospital_3" institution_type="hospital" city="Lvov" coordinate_x="34.4424220" coordinate_y="3.2342423" />
+    <INSTITUTIONS id="4" institution_name = "hospital_4" institution_type="hospital" city="Dnepr" coordinate_x="25.4424220" coordinate_y="53.2342423" />
+    <INSTITUTIONS id="5" institution_name = "hospital_5" institution_type="hospital" city="Krivoy Rog" coordinate_x="12.4424220" coordinate_y="23.2342423" />
 
     <UNITS id="1" first_name="Alexandr" last_name="Vasiliev" sex="male" battalion="95" blood_type="3-" weight="78" token_number="1111" description="test"/>
     <UNITS id="2" first_name="Dmytriy" last_name="Alexandrov" sex="male" battalion="95" blood_type="1+" weight="90" token_number="2222" description="test"/>
@@ -21,6 +21,6 @@
     <MEDICAL_REQUESTS id="2" unit_id="2" status="ok" injury="test" pain_reaction="1" breath="1" blood_pressure="120/80" extremity_avulsion="yes" care_type="test" departure_point_name="DAP" departure_point_coordinate_x="24.243432" departure_point_coordinate_y="54.23422" destination_institute_id="2" evacuation_crew_id="2" active_request = "1"/>
     <MEDICAL_REQUESTS id="3" unit_id="3" status="ok" injury="test" pain_reaction="1" breath="1" blood_pressure="120/80" extremity_avulsion="no" care_type="test" departure_point_name="Marienka" departure_point_coordinate_x="24.243432" departure_point_coordinate_y="54.23422" destination_institute_id="3" evacuation_crew_id="2" active_request = "1"/>
     <MEDICAL_REQUESTS id="4" unit_id="4" status="ok" injury="test" pain_reaction="1" breath="0" blood_pressure="120/80" extremity_avulsion="yes" care_type="test" departure_point_name="Artemovsk" departure_point_coordinate_x="24.243432" departure_point_coordinate_y="54.23422" destination_institute_id="4" evacuation_crew_id="3" active_request = "1"/>
-    <MEDICAL_REQUESTS id="5" unit_id="5" status="ok" injury="test" pain_reaction="1" breath="1" blood_pressure="120/80" extremity_avulsion="yes" care_type="test" departure_point_name="Shirokino" departure_point_coordinate_x="24.243432" departure_point_coordinate_y="54.23422" destination_institute_id="5" evacuation_crew_id="1" active_request = "1"/>
+    <MEDICAL_REQUESTS id="5" unit_id="5" status="ok" injury="test" pain_reaction="1" breath="1" blood_pressure="120/80" extremity_avulsion="yes" care_type="test" departure_point_name="Shirokino" departure_point_coordinate_x="24.243432" departure_point_coordinate_y="54.23422" destination_institute_id="4" evacuation_crew_id="1" active_request = "1"/>
 
 </dataset>
