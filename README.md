@@ -3,7 +3,7 @@
 
 Поэтому данный проект упростит и автоматизирует работу по эвакуации раненых бойцов с поля боя, а также поможет контролировать дальнейшее их перемещение по ЛПУ и статус. Вся информация контролируется и вносится координатором, который находится в тылу и имеет полный доступ к системе. Координатор получает сообщение о помощи, вносит необходимую информацию и назначает экипаж и лечебное учреждение для эвакуации. В дальнейшем планируется доработка Android-приложения для возможности создания заявки экипажем прямо "в поле".
 
-<b>Используемые технологии:</b> XML, HTML, Bootstrap, MySQL, JSP, JPA, Hibernate, SpringMVC, Spring Data JPA, Spring Security, Maven, Tomcat.
+<b>Используемые технологии:</b> XML, HTML, Bootstrap, MySQL, JSP, JPA, Hibernate, SpringMVC, Spring Data JPA, Spring Security, JUnit, Maven, Tomcat.
 
 Проект в постоянной доработке.
 
@@ -34,3 +34,6 @@
 
 <b>Список всех раненых</b>
 <a target="_blank" href="http://radikal.ru/big/ba60a2068b5d4786907fe7565bfc5a17"><img src="http://s018.radikal.ru/i524/1508/9f/5db90758c426.jpg" ></a>
+
+<b>Наличие тест-кейсов JUnit</b>
+<a target="_blank" href="http://radikal.ru/big/4e2dc3a7e9444e6580117692c71cc422"><img src="http://s019.radikal.ru/i600/1509/71/5ffd5d951c29.jpg" ></a>
