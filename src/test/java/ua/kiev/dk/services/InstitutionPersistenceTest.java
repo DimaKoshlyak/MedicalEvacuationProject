@@ -57,13 +57,13 @@ public class InstitutionPersistenceTest {
     }
 
     @Test
-    public void returnInstitutionsByNameTest() {
+    public void findInstitutionsByNameTest() {
         Institution institution = institutionManager.returnInstitutionFromName("hospital_1");
         assertEquals("hospital_1", institution.getInstitutionName());
     }
 
     @Test
-    public void saveInstitutionTest() {
+    public void addInstitutionTest() {
         Institution institution = new Institution();
         institution.setInstitutionName("hospital_6");
         institution.setInstitutionCity("Kiev");
