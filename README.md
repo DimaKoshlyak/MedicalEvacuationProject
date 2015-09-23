@@ -36,4 +36,5 @@
 <a target="_blank" href="http://radikal.ru/big/ba60a2068b5d4786907fe7565bfc5a17"><img src="http://s018.radikal.ru/i524/1508/9f/5db90758c426.jpg" ></a>
 
 <b>Наличие тест-кейсов JUnit</b>
+
 <a target="_blank" href="http://radikal.ru/big/4e2dc3a7e9444e6580117692c71cc422"><img src="http://s019.radikal.ru/i600/1509/71/5ffd5d951c29.jpg" ></a>
