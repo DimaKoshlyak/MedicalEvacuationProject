@@ -33,7 +33,7 @@ public class PersistenceContext {
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "hibernate.hbm2ddl.auto";
     private static final String PROPERTY_NAME_MYSQL_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
 
-    @Bean
+    @Bean(name = "dataSource")
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
 
