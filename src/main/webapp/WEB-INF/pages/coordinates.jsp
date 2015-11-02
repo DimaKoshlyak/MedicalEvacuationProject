@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <td>
-      Координаты: <c:out value="${medical_requests.departurePointCoordinateX}"/>, <c:out value="${medical_requests.departurePointCoordinateY}"/>
+      Координаты:<a href="/MedAutomation/show_on_map?id=${medical_requests.id}" target="_blank"> <c:out value="${medical_requests.departurePointCoordinateX}"/>, <c:out value="${medical_requests.departurePointCoordinateY}"/> </a>
       </td>
     </tr>
     </table>

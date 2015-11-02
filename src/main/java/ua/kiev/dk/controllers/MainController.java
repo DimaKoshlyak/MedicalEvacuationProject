@@ -77,6 +77,11 @@ public class MainController {
         return new ModelAndView("coordinates", "medical_requests", medicalRequestManager.showAllInfoAboutRequest(id));
     }
 
+    @RequestMapping("/show_on_map")
+    public ModelAndView showCoordinatesOnMap(@RequestParam(value = "id") long id){
+        return new ModelAndView("map","medical_requests",medicalRequestManager.showAllInfoAboutRequest(id));
+    }
+
     @RequestMapping(value = "/open_add_request_page", method = RequestMethod.POST)
     public ModelAndView addMedicalRequest() {
         Map<String, Object> model = new HashMap<String, Object>();
