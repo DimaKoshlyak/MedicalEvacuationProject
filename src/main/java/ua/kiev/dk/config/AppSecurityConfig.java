@@ -40,6 +40,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/MedAutomation/show_all_units").access("hasRole('ROLE_USER')")
                 .antMatchers("/MedAutomation/show_archive").access("hasRole('ROLE_USER')")
                 .antMatchers("/MedAutomation/open_add_request_page").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/MedAutomation/add_request").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/MedAutomation/add_institution").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/MedAutomation/add_crew").access("hasRole('ROLE_ADMIN')")
                 .and()
                 .formLogin().loginPage("/login")
                 .permitAll()
@@ -49,6 +52,6 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
                 .and()
-                .csrf();
+                .csrf().disable();
     }
 }
