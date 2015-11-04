@@ -35,6 +35,9 @@
 <b>Список всех раненых</b>
 <a target="_blank" href="http://radikal.ru/big/ba60a2068b5d4786907fe7565bfc5a17"><img src="http://s018.radikal.ru/i524/1508/9f/5db90758c426.jpg" ></a>
 
+<b>Просмотр координат эвакуации на карте Google</b>
+<a target="_blank" href="http://radikal.ru/big/313c8c45237a4fbbbb9a28a561d9af26"><img src="http://s017.radikal.ru/i412/1511/b1/d8c9e8c4eaa9.jpg" ></a>
+
 <b>Наличие тест-кейсов JUnit</b>
 
 <a target="_blank" href="http://radikal.ru/big/4e2dc3a7e9444e6580117692c71cc422"><img src="http://s019.radikal.ru/i600/1509/71/5ffd5d951c29.jpg" ></a>
